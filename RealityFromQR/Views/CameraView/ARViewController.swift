@@ -6,6 +6,7 @@
 //
 
 import ARKit
+import Combine
 import RealityKit
 import UIKit
 
@@ -24,6 +25,8 @@ class ARViewController: UIViewController {
 
         return view
     }()
+
+    private var disposeBag = Set<AnyCancellable>()
 }
 
 // MARK: - ARSessionDelegate
@@ -42,12 +45,8 @@ extension ARViewController: ARSessionDelegate {
         // virtual content to the real world.  Content anchored like this
         // will remain in position even if the reference image moves.
         let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
-        if let originalImageMarker = try? makeDrummer() {
-            originalImageMarker.position.y = 0
-            originalImageMarker.position.x = 0
-            originalImageAnchor.addChild(originalImageMarker)
-            arView.scene.addAnchor(originalImageAnchor)
-        }
+        arView.scene.addAnchor(originalImageAnchor)
+        loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
     }
 }
 
@@ -55,7 +54,7 @@ extension ARViewController: ARSessionDelegate {
 
 private extension ARViewController {
     enum Constants {
-        static let modelFileName = "drummer.usdz"
+        static let defaultModelFileName = "drummer.usdz"
         static let qrCodeImageName = "qrcode"
         static let imageGroupName = "AR Resources"
     }
@@ -102,8 +101,16 @@ private extension ARViewController {
         arView.session.run(configuration)
     }
 
-    func makeDrummer() throws -> ModelEntity {
-        let modelEntity = try ModelEntity.loadModel(named: Constants.modelFileName)
-        return modelEntity
+    func loadEntityAsync(name: String, anchor: AnchorEntity) {
+        // Load the asset asynchronously
+        ModelEntity.loadModelAsync(named: name)
+            .sink(receiveCompletion: { error in
+                print("Error: \(error)")
+            }, receiveValue: { entity in
+                entity.position.x = 0
+                entity.position.y = 0
+                anchor.addChild(entity)
+            })
+            .store(in: &disposeBag)
     }
 }

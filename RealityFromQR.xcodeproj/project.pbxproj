@@ -22,6 +22,8 @@
 		FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */; };
 		FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */; };
 		FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA022A4C60F4004C8976 /* UIConstants.swift */; };
+		FC1EEA062A4C79A3004C8976 /* Navigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA052A4C79A3004C8976 /* Navigate.swift */; };
+		FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA072A4C79B4004C8976 /* DeferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		FC1EEA022A4C60F4004C8976 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		FC1EEA052A4C79A3004C8976 /* Navigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigate.swift; sourceTree = "<group>"; };
+		FC1EEA072A4C79B4004C8976 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		FC02E8BA2A48989100EC1809 /* RealityFromQR */ = {
 			isa = PBXGroup;
 			children = (
+				FC1EEA042A4C799B004C8976 /* Utils */,
 				FC1EE9F72A4C5E3D004C8976 /* UIComponents */,
 				FC1EE9FB2A4C5FA1004C8976 /* Views */,
 				FC02E8BB2A48989100EC1809 /* AppDelegate.swift */,
@@ -189,6 +194,15 @@
 				FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */,
 			);
 			path = MenuView;
+			sourceTree = "<group>";
+		};
+		FC1EEA042A4C799B004C8976 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EEA052A4C79A3004C8976 /* Navigate.swift */,
+				FC1EEA072A4C79B4004C8976 /* DeferView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */,
 				FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */,
 				FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */,
 				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,
@@ -353,6 +368,7 @@
 				FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */,
 				FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */,
 				FC1EE9F02A4C3460004C8976 /* CameraView.swift in Sources */,
+				FC1EEA062A4C79A3004C8976 /* Navigate.swift in Sources */,
 				FC1EE9F62A4C541D004C8976 /* MenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         // Create the SwiftUI view that provides the window contents.
-        let menuView = MenuView()
+        let menuView = MenuView(
+            viewModel: MenuViewModel(),
+            isPresented: .constant(true)
+        )
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)

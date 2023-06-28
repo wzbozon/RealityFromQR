@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct MenuView: View {
+    @StateObject private var viewModel: MenuViewModel
+
+    init(viewModel: MenuViewModel, isPresented: Binding<Bool>) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         ZStack(alignment: .center) {
             Image(systemName: Constants.imageName)
@@ -17,12 +23,12 @@ struct MenuView: View {
                 Spacer()
 
                 Button("Select File") {
-                    print("Select file")
+                    viewModel.selectFile()
                 }
                 .buttonStyle(.primary)
 
                 Button("Use default model") {
-                    print("Use default model")
+                    viewModel.useDefaultModel()
                 }
                 .buttonStyle(.secondary)
             }
@@ -30,6 +36,9 @@ struct MenuView: View {
             .padding(.bottom)
         }
         .edgesIgnoringSafeArea(.all)
+        .fullScreenCover(isPresented: $viewModel.isShowingCameraView) {
+            CameraView()
+        }
     }
 
     private enum Constants {
@@ -40,6 +49,9 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(
+            viewModel: .init(),
+            isPresented: .constant(false)
+        )
     }
 }
