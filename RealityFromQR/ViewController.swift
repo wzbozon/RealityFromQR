@@ -10,7 +10,7 @@ import RealityKit
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet var arView: ARView!
 
     let ballRadius: Float = 0.03
