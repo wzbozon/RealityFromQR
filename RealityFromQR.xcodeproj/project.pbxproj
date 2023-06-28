@@ -16,6 +16,7 @@
 		FC02E8D22A48989200EC1809 /* RealityFromQRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8D12A48989200EC1809 /* RealityFromQRTests.swift */; };
 		FC02E8DC2A48989200EC1809 /* RealityFromQRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */; };
 		FC02E8DE2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */; };
+		FC02E8EB2A489EF000EC1809 /* drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FC02E8EA2A489EF000EC1809 /* drummer.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		FC02E8D72A48989200EC1809 /* RealityFromQRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealityFromQRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITests.swift; sourceTree = "<group>"; };
 		FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC02E8EA2A489EF000EC1809 /* drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drummer.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				FC02E8BF2A48989100EC1809 /* Experience.rcproject */,
 				FC02E8C12A48989100EC1809 /* Main.storyboard */,
 				FC02E8C42A48989200EC1809 /* Assets.xcassets */,
+				FC02E8EA2A489EF000EC1809 /* drummer.usdz */,
 				FC02E8C62A48989200EC1809 /* LaunchScreen.storyboard */,
 			);
 			path = RealityFromQR;
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC02E8EB2A489EF000EC1809 /* drummer.usdz in Resources */,
 				FC02E8C82A48989200EC1809 /* LaunchScreen.storyboard in Resources */,
 				FC02E8C52A48989200EC1809 /* Assets.xcassets in Resources */,
 				FC02E8C32A48989100EC1809 /* Main.storyboard in Resources */,
