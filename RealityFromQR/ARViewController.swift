@@ -10,60 +10,53 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
-    lazy var arView: ARView = {
-        let view = ARView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        return view
-    }()
-
-    let ballRadius: Float = 0.03
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         setupLayout()
+        setupARView()
+    }
 
-        /*
-         // Load the "Box" scene from the "Experience" Reality File
-         let boxAnchor = try! Experience.loadBox()
+    private lazy var arView: ARView = {
+        let view = ARView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
 
-         // Add the box anchor to the scene
-         arView.scene.anchors.append(boxAnchor)
-         */
+        return view
+    }()
+}
 
-        /*
-         let imageAnchor = AnchorEntity(.image(group: "AR Resources", name: "qrcode"))
-         arView.scene.addAnchor(imageAnchor)
+// MARK: - ARSessionDelegate
 
-         let box = MeshResource.generateBox(size: 0.3, cornerRadius: 0.03)
-         let metal = SimpleMaterial(color: .gray, isMetallic: true)
-         let model = try ModelEntity(mesh: box, materials: [metal])
-         imageAnchor.addChild(model)
-         */
-
-        guard let referenceImages = ARReferenceImage.referenceImages(
-            inGroupNamed: "AR Resources", bundle: nil) else {
-            fatalError("Missing expected asset catalog resources.")
+extension ARViewController: ARSessionDelegate {
+    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        guard
+            let imageAnchor = anchors[0] as? ARImageAnchor,
+            let imageName = imageAnchor.name,
+            imageName  == Constants.qrCodeImageName
+        else {
+            return
         }
 
-        arView.session.delegate = self
-        arView.automaticallyConfigureSession = false
+        // AnchorEntity(world: imageAnchor.transform) results in anchoring
+        // virtual content to the real world.  Content anchored like this
+        // will remain in position even if the reference image moves.
+        let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
+        if let originalImageMarker = try? makeDrummer() {
+            originalImageMarker.position.y = 0
+            originalImageMarker.position.x = 0
+            originalImageAnchor.addChild(originalImageMarker)
+            arView.scene.addAnchor(originalImageAnchor)
+        }
+    }
+}
 
-        /*
-        arView.debugOptions = [.showStatistics]
-        arView.renderOptions = [.disableCameraGrain, .disableHDR,
-                                .disableMotionBlur, .disableDepthOfField,
-                                .disableFaceOcclusions, .disablePersonOcclusion,
-                                .disableGroundingShadows, .disableAREnvironmentLighting]
-        */
+// MARK: - Private
 
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = referenceImages
-        configuration.maximumNumberOfTrackedImages = 1
-
-        arView.session.run(configuration)
+private extension ARViewController {
+    enum Constants {
+        static let modelFileName = "drummer.usdz"
+        static let qrCodeImageName = "qrcode"
     }
 
     func setupView() {
@@ -79,50 +72,25 @@ class ARViewController: UIViewController {
         ])
     }
 
-    func makeBall(radius: Float, color: UIColor) -> ModelEntity {
-        let ball = ModelEntity(mesh: .generateSphere(radius: radius),
-                               materials: [SimpleMaterial(color: color, isMetallic: false)])
-        return ball
-    }
-
-    func makeDrummer() -> ModelEntity? {
-        let filename = "drummer" + ".usdz"
-        let modelEntity = try? ModelEntity.loadModel(named: filename)
-        return modelEntity
-    }
-}
-
-// MARK: - ARSessionDelegate
-
-extension ARViewController: ARSessionDelegate {
-    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        guard let imageAnchor = anchors[0] as? ARImageAnchor else { return }
-
-        if let imageName = imageAnchor.name, imageName  == "qrcode" {
-
-            // AnchorEntity(world: imageAnchor.transform) results in anchoring
-            // virtual content to the real world.  Content anchored like this
-            // will remain in position even if the reference image moves.
-            let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
-            // let originalImageMarker = makeBall(radius: ballRadius, color: .systemPink)
-            if let originalImageMarker = makeDrummer() {
-                originalImageMarker.position.y = 0.2
-                originalImageMarker.position.x = 0.2
-                originalImageAnchor.addChild(originalImageMarker)
-                arView.scene.addAnchor(originalImageAnchor)
-            }
-
-            /*
-             // AnchorEntity(anchor: imageAnchor) results in anchoring
-             // virtual content to the ARImageAnchor that is attached to the
-             // reference image.  Content anchored like this will appear
-             // stuck to the reference image.
-             let currentImageAnchor = AnchorEntity(anchor: imageAnchor)
-             let currentImageMarker = makeBall(radius: ballRadius, color: .systemTeal)
-             currentImageMarker.position.y = ballRadius
-             currentImageAnchor.addChild(currentImageMarker)
-             arView.scene.addAnchor(currentImageAnchor)
-             */
+    func setupARView() {
+        guard let referenceImages = ARReferenceImage.referenceImages(
+            inGroupNamed: "AR Resources", bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
         }
+
+        arView.session.delegate = self
+        arView.automaticallyConfigureSession = false
+        arView.debugOptions = [.showStatistics]
+
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.detectionImages = referenceImages
+        configuration.maximumNumberOfTrackedImages = 1
+
+        arView.session.run(configuration)
+    }
+
+    func makeDrummer() throws -> ModelEntity {
+        let modelEntity = try ModelEntity.loadModel(named: Constants.modelFileName)
+        return modelEntity
     }
 }
