@@ -17,14 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(C) Created by Denis Kutlubaev" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByN-Cr-aec">
-                                <rect key="frame" x="77" y="777" width="239" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Augmented Reality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-Vv-g4p">
-                                <rect key="frame" x="82.666666666666686" y="409.33333333333331" width="228" height="33.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Augmented Reality Example" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-Vv-g4p">
+                                <rect key="frame" x="82.666666666666686" y="392.33333333333331" width="228" height="67.666666666666686"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,8 +28,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bKD-Vv-g4p" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Bgr-xc-Qin"/>
-                            <constraint firstItem="ByN-Cr-aec" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TpL-5z-ntT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ByN-Cr-aec" secondAttribute="bottom" constant="20" id="gqV-8r-Twm"/>
                             <constraint firstItem="bKD-Vv-g4p" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qIw-Eu-Nuv"/>
                         </constraints>
                     </view>

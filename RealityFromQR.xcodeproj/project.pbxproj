@@ -15,8 +15,13 @@
 		FC02E8DC2A48989200EC1809 /* RealityFromQRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */; };
 		FC02E8DE2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */; };
 		FC1EE9ED2A4C1A87004C8976 /* drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FC1EE9EC2A4C1A87004C8976 /* drummer.usdz */; };
-		FC1EE9F02A4C3460004C8976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9EF2A4C345F004C8976 /* ContentView.swift */; };
+		FC1EE9F02A4C3460004C8976 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9EF2A4C345F004C8976 /* CameraView.swift */; };
 		FC1EE9F42A4C34C2004C8976 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9F32A4C34C2004C8976 /* ARViewContainer.swift */; };
+		FC1EE9F62A4C541D004C8976 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9F52A4C541D004C8976 /* MenuView.swift */; };
+		FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9F92A4C5E56004C8976 /* PrimaryButton.swift */; };
+		FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */; };
+		FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */; };
+		FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA022A4C60F4004C8976 /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +53,13 @@
 		FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITests.swift; sourceTree = "<group>"; };
 		FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC1EE9EC2A4C1A87004C8976 /* drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drummer.usdz; sourceTree = "<group>"; };
-		FC1EE9EF2A4C345F004C8976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC1EE9EF2A4C345F004C8976 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FC1EE9F32A4C34C2004C8976 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		FC1EE9F52A4C541D004C8976 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		FC1EE9F92A4C5E56004C8976 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		FC1EEA022A4C60F4004C8976 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +110,9 @@
 		FC02E8BA2A48989100EC1809 /* RealityFromQR */ = {
 			isa = PBXGroup;
 			children = (
+				FC1EE9F72A4C5E3D004C8976 /* UIComponents */,
+				FC1EE9FB2A4C5FA1004C8976 /* Views */,
 				FC02E8BB2A48989100EC1809 /* AppDelegate.swift */,
-				FC1EE9EF2A4C345F004C8976 /* ContentView.swift */,
-				FC1EE9F32A4C34C2004C8976 /* ARViewContainer.swift */,
-				FC02E8BD2A48989100EC1809 /* ARViewController.swift */,
 				FC02E8C42A48989200EC1809 /* Assets.xcassets */,
 				FC02E8C62A48989200EC1809 /* LaunchScreen.storyboard */,
 				FC1EE9EB2A4C1A87004C8976 /* Resources */,
@@ -134,6 +143,52 @@
 				FC1EE9EC2A4C1A87004C8976 /* drummer.usdz */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FC1EE9F72A4C5E3D004C8976 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EE9F82A4C5E44004C8976 /* Buttons */,
+				FC1EEA022A4C60F4004C8976 /* UIConstants.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FC1EE9F82A4C5E44004C8976 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EE9F92A4C5E56004C8976 /* PrimaryButton.swift */,
+				FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		FC1EE9FB2A4C5FA1004C8976 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EE9FD2A4C5FBB004C8976 /* MenuView */,
+				FC1EE9FC2A4C5FB1004C8976 /* CameraView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC1EE9FC2A4C5FB1004C8976 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EE9EF2A4C345F004C8976 /* CameraView.swift */,
+				FC1EE9F32A4C34C2004C8976 /* ARViewContainer.swift */,
+				FC02E8BD2A48989100EC1809 /* ARViewController.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		FC1EE9FD2A4C5FBB004C8976 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EE9F52A4C541D004C8976 /* MenuView.swift */,
+				FC1EE9FE2A4C5FEC004C8976 /* MenuViewModel.swift */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +345,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */,
+				FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */,
+				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,
 				FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */,
 				FC1EE9F42A4C34C2004C8976 /* ARViewContainer.swift in Sources */,
+				FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */,
 				FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */,
-				FC1EE9F02A4C3460004C8976 /* ContentView.swift in Sources */,
+				FC1EE9F02A4C3460004C8976 /* CameraView.swift in Sources */,
+				FC1EE9F62A4C541D004C8976 /* MenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
