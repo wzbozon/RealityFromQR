@@ -57,6 +57,7 @@ private extension ARViewController {
     enum Constants {
         static let modelFileName = "drummer.usdz"
         static let qrCodeImageName = "qrcode"
+        static let imageGroupName = "AR Resources"
     }
 
     func setupView() {
@@ -74,13 +75,25 @@ private extension ARViewController {
 
     func setupARView() {
         guard let referenceImages = ARReferenceImage.referenceImages(
-            inGroupNamed: "AR Resources", bundle: nil) else {
+            inGroupNamed: Constants.imageGroupName,
+            bundle: nil
+        ) else {
             fatalError("Missing expected asset catalog resources.")
         }
 
         arView.session.delegate = self
         arView.automaticallyConfigureSession = false
         arView.debugOptions = [.showStatistics]
+        arView.renderOptions = [
+            .disableAREnvironmentLighting,
+            .disableHDR,
+            .disableMotionBlur,
+            .disableFaceMesh,
+            .disableGroundingShadows,
+            .disableDepthOfField,
+            .disablePersonOcclusion,
+            .disableCameraGrain
+        ]
 
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = referenceImages
