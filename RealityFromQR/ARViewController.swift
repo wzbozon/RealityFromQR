@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ARViewController.swift
 //  RealityFromQR
 //
 //  Created by Denis Kutlubaev on 25/06/2023.
@@ -9,14 +9,21 @@ import ARKit
 import RealityKit
 import UIKit
 
-class ViewController: UIViewController {
+class ARViewController: UIViewController {
+    lazy var arView: ARView = {
+        let view = ARView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
 
-    @IBOutlet var arView: ARView!
+        return view
+    }()
 
     let ballRadius: Float = 0.03
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupView()
+        setupLayout()
 
         /*
          // Load the "Box" scene from the "Experience" Reality File
@@ -59,6 +66,19 @@ class ViewController: UIViewController {
         arView.session.run(configuration)
     }
 
+    func setupView() {
+        view.addSubview(arView)
+    }
+
+    func setupLayout() {
+        view.addConstraints([
+            arView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            arView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            arView.topAnchor.constraint(equalTo: view.topAnchor),
+            arView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+
     func makeBall(radius: Float, color: UIColor) -> ModelEntity {
         let ball = ModelEntity(mesh: .generateSphere(radius: radius),
                                materials: [SimpleMaterial(color: color, isMetallic: false)])
@@ -74,7 +94,7 @@ class ViewController: UIViewController {
 
 // MARK: - ARSessionDelegate
 
-extension ViewController: ARSessionDelegate {
+extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         guard let imageAnchor = anchors[0] as? ARImageAnchor else { return }
 
