@@ -9,25 +9,27 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        VStack {
-            Spacer()
-
+        ZStack(alignment: .center) {
             Image(systemName: Constants.imageName)
                 .font(Constants.imageFont)
 
-            Spacer()
+            VStack {
+                Spacer()
 
-            Button("Select File") {
-                print("Select file")
-            }
-            .buttonStyle(.primary)
+                Button("Select File") {
+                    print("Select file")
+                }
+                .buttonStyle(.primary)
 
-            Button("Use default model") {
-                print("Use default model")
+                Button("Use default model") {
+                    print("Use default model")
+                }
+                .buttonStyle(.secondary)
             }
-            .buttonStyle(.secondary)
+            .padding()
+            .padding(.bottom)
         }
-        .padding()
+        .edgesIgnoringSafeArea(.all)
     }
 
     private enum Constants {
