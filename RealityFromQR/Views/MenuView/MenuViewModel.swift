@@ -28,13 +28,30 @@ final class MenuViewModel: ObservableObject {
         print("Did select file: \(url)")
 
         do {
+            var url = url
+            // Load usdz files directly
+            // For reality files append a scene name
+            if url.pathExtension == "reality" {
+                url = url.appendingPathComponent(Constants.sceneName, isDirectory: false)
+            }
+
             model.entity = try Entity.load(contentsOf: url)
             print("Model loaded")
+
+            // Show CameraView, it will setup ARView with a scene / entity in Model
             isShowingCameraView = true
         } catch {
-            print("Fail loading entity.")
+            print("Failed to load entity. Error: \(error)")
         }
     }
 
     private let model = Model.shared
+}
+
+// MARK: - Private
+
+private extension MenuViewModel {
+    enum Constants {
+        static let sceneName = "Scene"
+    }
 }

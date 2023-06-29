@@ -41,7 +41,7 @@ struct MenuView: View {
         }
         .fileImporter(
             isPresented: $viewModel.isShowingFileImporter,
-            allowedContentTypes: [.usdz],
+            allowedContentTypes: [.usdz, .realityFile],
             allowsMultipleSelection: false
         ) { result in
             switch result {

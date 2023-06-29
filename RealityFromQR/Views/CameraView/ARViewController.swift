@@ -37,7 +37,7 @@ extension ARViewController: ARSessionDelegate {
         guard
             let imageAnchor = anchors[0] as? ARImageAnchor,
             let imageName = imageAnchor.name,
-            imageName  == Constants.qrCodeImageName
+            imageName == Constants.qrCodeImageName
         else {
             return
         }
