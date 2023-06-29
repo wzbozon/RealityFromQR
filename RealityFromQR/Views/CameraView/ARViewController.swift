@@ -27,6 +27,7 @@ class ARViewController: UIViewController {
     }()
 
     private var disposeBag = Set<AnyCancellable>()
+    private let model = Model.shared
 }
 
 // MARK: - ARSessionDelegate
@@ -46,7 +47,12 @@ extension ARViewController: ARSessionDelegate {
         // will remain in position even if the reference image moves.
         let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
         arView.scene.addAnchor(originalImageAnchor)
-        loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
+
+        if let entity = model.entity {
+            setupEntity(entity, originalImageAnchor)
+        } else {
+            loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
+        }
     }
 }
 
@@ -106,11 +112,19 @@ private extension ARViewController {
         ModelEntity.loadModelAsync(named: name)
             .sink(receiveCompletion: { error in
                 print("Error: \(error)")
-            }, receiveValue: { entity in
-                entity.position.x = 0
-                entity.position.y = 0
-                anchor.addChild(entity)
+            }, receiveValue: { [weak self] entity in
+                self?.setupEntity(entity, anchor)
             })
             .store(in: &disposeBag)
+    }
+
+    func setupEntity(_ entity: Entity, _ anchor: AnchorEntity) {
+        entity.position.x = 0
+        entity.position.y = 0
+        anchor.addChild(entity)
+
+        if let animation = entity.availableAnimations.first {
+            entity.playAnimation(animation.repeat())
+        }
     }
 }

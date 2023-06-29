@@ -24,6 +24,7 @@
 		FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA022A4C60F4004C8976 /* UIConstants.swift */; };
 		FC1EEA062A4C79A3004C8976 /* Navigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA052A4C79A3004C8976 /* Navigate.swift */; };
 		FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA072A4C79B4004C8976 /* DeferView.swift */; };
+		FC1EEA0B2A4DD954004C8976 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1EEA0A2A4DD954004C8976 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		FC1EEA022A4C60F4004C8976 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		FC1EEA052A4C79A3004C8976 /* Navigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigate.swift; sourceTree = "<group>"; };
 		FC1EEA072A4C79B4004C8976 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
+		FC1EEA0A2A4DD954004C8976 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		FC02E8BA2A48989100EC1809 /* RealityFromQR */ = {
 			isa = PBXGroup;
 			children = (
+				FC1EEA092A4DD94C004C8976 /* Model */,
 				FC1EEA042A4C799B004C8976 /* Utils */,
 				FC1EE9F72A4C5E3D004C8976 /* UIComponents */,
 				FC1EE9FB2A4C5FA1004C8976 /* Views */,
@@ -203,6 +206,14 @@
 				FC1EEA072A4C79B4004C8976 /* DeferView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FC1EEA092A4DD94C004C8976 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC1EEA0A2A4DD954004C8976 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +373,7 @@
 				FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */,
 				FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */,
 				FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */,
+				FC1EEA0B2A4DD954004C8976 /* Model.swift in Sources */,
 				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,
 				FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */,
 				FC1EE9F42A4C34C2004C8976 /* ARViewContainer.swift in Sources */,

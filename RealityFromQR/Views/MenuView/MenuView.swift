@@ -23,12 +23,12 @@ struct MenuView: View {
                 Spacer()
 
                 Button("Select File") {
-                    viewModel.selectFile()
+                    viewModel.selectFileTapped()
                 }
                 .buttonStyle(.primary)
 
                 Button("Use default model") {
-                    viewModel.useDefaultModel()
+                    viewModel.useDefaultModelTapped()
                 }
                 .buttonStyle(.secondary)
             }
@@ -38,6 +38,27 @@ struct MenuView: View {
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $viewModel.isShowingCameraView) {
             CameraView()
+        }
+        .fileImporter(
+            isPresented: $viewModel.isShowingFileImporter,
+            allowedContentTypes: [.usdz],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let files):
+                files.forEach { file in
+                    guard file.startAccessingSecurityScopedResource() else {
+                        print("Error: no access")
+                        return
+                    }
+
+                    viewModel.handlePickedFile(file)
+
+                    file.stopAccessingSecurityScopedResource()
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
         }
     }
 
