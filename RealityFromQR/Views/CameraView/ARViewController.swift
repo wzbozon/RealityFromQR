@@ -28,6 +28,7 @@ class ARViewController: UIViewController {
 
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
+    private let isShowingStatistics = false
 }
 
 // MARK: - ARSessionDelegate
@@ -88,7 +89,11 @@ private extension ARViewController {
 
         arView.session.delegate = self
         arView.automaticallyConfigureSession = false
-        arView.debugOptions = [.showStatistics]
+
+        if isShowingStatistics {
+            arView.debugOptions = [.showStatistics]
+        }
+
         arView.renderOptions = [
             .disableAREnvironmentLighting,
             .disableHDR,
