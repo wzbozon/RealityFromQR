@@ -22,6 +22,10 @@ struct MenuView: View {
             VStack {
                 Spacer()
 
+                Toggle(isOn: $viewModel.isShowingStatistics) {
+                    Text("Show statistics")
+                }
+
                 Button("Select File") {
                     viewModel.selectFileTapped()
                 }
@@ -37,7 +41,7 @@ struct MenuView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $viewModel.isShowingCameraView) {
-            CameraView()
+            CameraView(isShowingStatistics: viewModel.isShowingStatistics)
         }
         .fileImporter(
             isPresented: $viewModel.isShowingFileImporter,

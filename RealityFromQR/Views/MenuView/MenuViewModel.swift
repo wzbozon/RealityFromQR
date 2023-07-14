@@ -15,6 +15,7 @@ import RealityKit
 final class MenuViewModel: ObservableObject {
     @Published var isShowingCameraView = false
     @Published var isShowingFileImporter = false
+    @Published var isShowingStatistics = false
 
     func selectFileTapped() {
         isShowingFileImporter = true

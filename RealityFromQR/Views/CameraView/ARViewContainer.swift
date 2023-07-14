@@ -13,12 +13,18 @@ import UIKit
 struct ARViewContainer: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARViewController
 
+    init(isShowingStatistics: Bool) {
+        self.isShowingStatistics = isShowingStatistics
+    }
+
     func makeUIViewController(context: Context) -> ARViewController {
-        let viewController = ARViewController()
+        let viewController = ARViewController(isShowingStatistics: isShowingStatistics)
         return viewController
     }
 
     func updateUIViewController(_ uiViewController: ARViewController, context: Context) {
 
     }
+
+    private let isShowingStatistics: Bool
 }

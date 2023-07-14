@@ -10,13 +10,25 @@ import RealityKit
 import ARKit
 
 struct CameraView: View {
+    let isShowingStatistics: Bool
+
     var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
+        ZStack {
+            ARViewContainer(
+                isShowingStatistics: isShowingStatistics
+            ).edgesIgnoringSafeArea(.all)
+
+            VStack {
+                CloseButton()
+
+                Spacer()
+            }
+        }
     }
 }
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(isShowingStatistics: false)
     }
 }

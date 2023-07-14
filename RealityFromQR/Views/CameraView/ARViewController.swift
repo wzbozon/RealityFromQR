@@ -11,12 +11,26 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
+    init(isShowingStatistics: Bool) {
+        self.isShowingStatistics = isShowingStatistics
+        super.init(nibName: nil, bundle: nil)
+        print("[ARViewController] init")
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         setupLayout()
         setupARView()
+    }
+
+    deinit {
+        print("[ARViewController] deinit")
     }
 
     private lazy var arView: ARView = {
@@ -28,7 +42,7 @@ class ARViewController: UIViewController {
 
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
-    private let isShowingStatistics = false
+    private let isShowingStatistics: Bool
 }
 
 // MARK: - ARSessionDelegate
@@ -92,6 +106,8 @@ private extension ARViewController {
 
         if isShowingStatistics {
             arView.debugOptions = [.showStatistics]
+        } else {
+            arView.debugOptions = []
         }
 
         arView.renderOptions = [

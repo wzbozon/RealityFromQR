@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CFE4CE72A615CB100C232D1 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE4CE62A615CB100C232D1 /* CloseButton.swift */; };
 		FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BB2A48989100EC1809 /* AppDelegate.swift */; };
 		FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BD2A48989100EC1809 /* ARViewController.swift */; };
 		FC02E8C52A48989200EC1809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC02E8C42A48989200EC1809 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CFE4CE62A615CB100C232D1 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		FC02E8B82A48989100EC1809 /* RealityFromQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityFromQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8BB2A48989100EC1809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC02E8BD2A48989100EC1809 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				FC1EE9F92A4C5E56004C8976 /* PrimaryButton.swift */,
 				FC1EEA002A4C60C1004C8976 /* SecondaryButton.swift */,
+				3CFE4CE62A615CB100C232D1 /* CloseButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				FC1EEA0B2A4DD954004C8976 /* Model.swift in Sources */,
 				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,
 				FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */,
+				3CFE4CE72A615CB100C232D1 /* CloseButton.swift in Sources */,
 				FC1EE9F42A4C34C2004C8976 /* ARViewContainer.swift in Sources */,
 				FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */,
 				FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */,
