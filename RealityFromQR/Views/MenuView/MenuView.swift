@@ -26,6 +26,10 @@ struct MenuView: View {
                     Text("Show statistics")
                 }
 
+                Toggle(isOn: $viewModel.isRenderOptionsEnabled) {
+                    Text("Enable render options")
+                }
+
                 Button("Select File") {
                     viewModel.selectFileTapped()
                 }
@@ -41,7 +45,10 @@ struct MenuView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $viewModel.isShowingCameraView) {
-            CameraView(isShowingStatistics: viewModel.isShowingStatistics)
+            CameraView(
+                isShowingStatistics: viewModel.isShowingStatistics,
+                isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled
+            )
         }
         .fileImporter(
             isPresented: $viewModel.isShowingFileImporter,

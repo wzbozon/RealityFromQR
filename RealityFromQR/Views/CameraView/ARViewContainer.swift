@@ -13,12 +13,16 @@ import UIKit
 struct ARViewContainer: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARViewController
 
-    init(isShowingStatistics: Bool) {
+    init(isShowingStatistics: Bool, isRenderOptionsEnabled: Bool) {
         self.isShowingStatistics = isShowingStatistics
+        self.isRenderOptionsEnabled = isRenderOptionsEnabled
     }
 
     func makeUIViewController(context: Context) -> ARViewController {
-        let viewController = ARViewController(isShowingStatistics: isShowingStatistics)
+        let viewController = ARViewController(
+            isShowingStatistics: isShowingStatistics,
+            isRenderOptionsEnabled: isRenderOptionsEnabled
+        )
         return viewController
     }
 
@@ -27,4 +31,5 @@ struct ARViewContainer: UIViewControllerRepresentable {
     }
 
     private let isShowingStatistics: Bool
+    private let isRenderOptionsEnabled: Bool
 }

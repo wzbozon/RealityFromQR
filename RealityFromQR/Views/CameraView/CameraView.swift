@@ -11,11 +11,13 @@ import ARKit
 
 struct CameraView: View {
     let isShowingStatistics: Bool
+    let isRenderOptionsEnabled: Bool
 
     var body: some View {
         ZStack {
             ARViewContainer(
-                isShowingStatistics: isShowingStatistics
+                isShowingStatistics: isShowingStatistics,
+                isRenderOptionsEnabled: isRenderOptionsEnabled
             ).edgesIgnoringSafeArea(.all)
 
             VStack {
@@ -29,6 +31,6 @@ struct CameraView: View {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView(isShowingStatistics: false)
+        CameraView(isShowingStatistics: false, isRenderOptionsEnabled: false)
     }
 }

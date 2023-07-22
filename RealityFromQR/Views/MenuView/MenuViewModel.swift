@@ -16,6 +16,7 @@ final class MenuViewModel: ObservableObject {
     @Published var isShowingCameraView = false
     @Published var isShowingFileImporter = false
     @Published var isShowingStatistics = false
+    @Published var isRenderOptionsEnabled = true
 
     func selectFileTapped() {
         isShowingFileImporter = true

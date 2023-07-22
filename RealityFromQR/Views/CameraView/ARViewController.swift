@@ -11,8 +11,9 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
-    init(isShowingStatistics: Bool) {
+    init(isShowingStatistics: Bool, isRenderOptionsEnabled: Bool) {
         self.isShowingStatistics = isShowingStatistics
+        self.isRenderOptionsEnabled = isRenderOptionsEnabled
         super.init(nibName: nil, bundle: nil)
         print("[ARViewController] init")
     }
@@ -43,6 +44,7 @@ class ARViewController: UIViewController {
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
     private let isShowingStatistics: Bool
+    private let isRenderOptionsEnabled: Bool
 }
 
 // MARK: - ARSessionDelegate
@@ -110,16 +112,20 @@ private extension ARViewController {
             arView.debugOptions = []
         }
 
-        arView.renderOptions = [
-            .disableAREnvironmentLighting,
-            .disableHDR,
-            .disableMotionBlur,
-            .disableFaceMesh,
-            .disableGroundingShadows,
-            .disableDepthOfField,
-            .disablePersonOcclusion,
-            .disableCameraGrain
-        ]
+        if isRenderOptionsEnabled {
+            arView.renderOptions = []
+        } else {
+            arView.renderOptions = [
+                .disableAREnvironmentLighting,
+                .disableHDR,
+                .disableMotionBlur,
+                .disableFaceMesh,
+                .disableGroundingShadows,
+                .disableDepthOfField,
+                .disablePersonOcclusion,
+                .disableCameraGrain
+            ]
+        }
 
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = referenceImages
