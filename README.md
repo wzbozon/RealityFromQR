@@ -1,13 +1,13 @@
 # Introduction
 
-Augmented reality, attached using a QR code. QR code can be removed after the placement of objects.
+Augmented reality, attached using a QR code / horizontal or vertical plane. 
+QR code can be removed after the placement of objects or can be sticky to the object.
 
 # Stack
 
 - iOS 16+
 - SwiftUI
 - ARKit, RealityKit
-- Unit and UI tests
 
 # Git LFS
 
