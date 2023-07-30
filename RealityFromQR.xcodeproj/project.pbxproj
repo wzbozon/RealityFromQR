@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CA649D02A76BE39002D868A /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649CF2A76BE39002D868A /* ProductListView.swift */; };
 		3CFE4CE72A615CB100C232D1 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE4CE62A615CB100C232D1 /* CloseButton.swift */; };
 		FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BB2A48989100EC1809 /* AppDelegate.swift */; };
 		FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BD2A48989100EC1809 /* ARViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CA649CF2A76BE39002D868A /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		3CFE4CE62A615CB100C232D1 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		FC02E8B82A48989100EC1809 /* RealityFromQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityFromQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8BB2A48989100EC1809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CA649CE2A76BE27002D868A /* ProductListView */ = {
+			isa = PBXGroup;
+			children = (
+				3CA649CF2A76BE39002D868A /* ProductListView.swift */,
+			);
+			path = ProductListView;
+			sourceTree = "<group>";
+		};
 		FC02E8AF2A48989100EC1809 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 		FC1EE9FB2A4C5FA1004C8976 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3CA649CE2A76BE27002D868A /* ProductListView */,
 				FC1EE9FD2A4C5FBB004C8976 /* MenuView */,
 				FC1EE9FC2A4C5FB1004C8976 /* CameraView */,
 			);
@@ -375,6 +386,7 @@
 			files = (
 				FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */,
 				FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */,
+				3CA649D02A76BE39002D868A /* ProductListView.swift in Sources */,
 				FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */,
 				FC1EEA0B2A4DD954004C8976 /* Model.swift in Sources */,
 				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,

@@ -19,12 +19,6 @@ struct CameraView: View {
                 isShowingStatistics: isShowingStatistics,
                 isRenderOptionsEnabled: isRenderOptionsEnabled
             ).edgesIgnoringSafeArea(.all)
-
-            VStack {
-                CloseButton()
-
-                Spacer()
-            }
         }
     }
 }

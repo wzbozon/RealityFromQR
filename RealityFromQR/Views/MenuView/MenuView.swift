@@ -15,46 +15,53 @@ struct MenuView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .center) {
-            Image(systemName: Constants.imageName)
-                .font(Constants.imageFont)
+        NavigationStack {
+            ZStack(alignment: .center) {
+                Image(systemName: Constants.imageName)
+                    .font(Constants.imageFont)
 
-            VStack {
-                Spacer()
+                VStack {
+                    Spacer()
 
-                Toggle(isOn: $viewModel.isShowingStatistics) {
-                    Text("Show statistics")
+                    Toggle(isOn: $viewModel.isShowingStatistics) {
+                        Text("Show statistics")
+                    }
+
+                    Toggle(isOn: $viewModel.isRenderOptionsEnabled) {
+                        Text("Enable render options")
+                    }
+
+                    Button("Select File") {
+                        viewModel.selectFileTapped()
+                    }
+                    .buttonStyle(.primary)
+
+                    Button("Use default model") {
+                        viewModel.useDefaultModelTapped()
+                    }
+                    .buttonStyle(.secondary)
+
+                    Button("Product list") {
+                        viewModel.productListTapped()
+                    }
+                    .buttonStyle(.secondary)
+
+                    Navigate(when: $viewModel.isShowingProductList) {
+                        ProductListView()
+                    }
+
+                    Navigate(when: $viewModel.isShowingCameraView) {
+                        CameraView(
+                            isShowingStatistics: viewModel.isShowingStatistics,
+                            isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled
+                        )
+                    }
                 }
-
-                Toggle(isOn: $viewModel.isRenderOptionsEnabled) {
-                    Text("Enable render options")
-                }
-
-                Button("Select File") {
-                    viewModel.selectFileTapped()
-                }
-                .buttonStyle(.primary)
-
-                Button("Use default model") {
-                    viewModel.useDefaultModelTapped()
-                }
-                .buttonStyle(.secondary)
-
-                Button("Product list") {
-                    viewModel.productListTapped()
-                }
-                .buttonStyle(.secondary)
+                .padding()
+                .padding(.bottom)
             }
-            .padding()
-            .padding(.bottom)
         }
         .edgesIgnoringSafeArea(.all)
-        .fullScreenCover(isPresented: $viewModel.isShowingCameraView) {
-            CameraView(
-                isShowingStatistics: viewModel.isShowingStatistics,
-                isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled
-            )
-        }
         .fileImporter(
             isPresented: $viewModel.isShowingFileImporter,
             allowedContentTypes: [.usdz, .realityFile],
