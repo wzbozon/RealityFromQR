@@ -46,10 +46,12 @@ struct MenuView: View {
                     }
                     .buttonStyle(.secondary)
 
+                    // Product list
                     Navigate(when: $viewModel.isShowingProductList) {
                         ProductListView()
                     }
 
+                    // Camera view
                     Navigate(when: $viewModel.isShowingCameraView) {
                         CameraView(
                             isShowingStatistics: viewModel.isShowingStatistics,
