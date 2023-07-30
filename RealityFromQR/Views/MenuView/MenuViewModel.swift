@@ -14,6 +14,7 @@ import RealityKit
 @MainActor
 final class MenuViewModel: ObservableObject {
     @Published var isShowingCameraView = false
+    @Published var isShowingProductList = false
     @Published var isShowingFileImporter = false
     @Published var isShowingStatistics = false
     @Published var isRenderOptionsEnabled = true
@@ -24,6 +25,10 @@ final class MenuViewModel: ObservableObject {
 
     func useDefaultModelTapped() {
         isShowingCameraView = true
+    }
+
+    func productListTapped() {
+        isShowingProductList = true
     }
 
     func handlePickedFile(_ url: URL) {

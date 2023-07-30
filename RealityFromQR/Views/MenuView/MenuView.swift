@@ -39,6 +39,11 @@ struct MenuView: View {
                     viewModel.useDefaultModelTapped()
                 }
                 .buttonStyle(.secondary)
+
+                Button("Product list") {
+                    viewModel.productListTapped()
+                }
+                .buttonStyle(.secondary)
             }
             .padding()
             .padding(.bottom)
