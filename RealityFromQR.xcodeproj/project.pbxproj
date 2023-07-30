@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CA649D02A76BE39002D868A /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649CF2A76BE39002D868A /* ProductListView.swift */; };
+		3CA649D02A76BE39002D868A /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649CF2A76BE39002D868A /* ProductList.swift */; };
+		3CA649D22A76C07B002D868A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649D12A76C07B002D868A /* Product.swift */; };
+		3CA649D42A76C0E2002D868A /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CA649D32A76C0E2002D868A /* products.json */; };
+		3CA649D62A76C18E002D868A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649D52A76C18E002D868A /* ModelData.swift */; };
+		3CA649D82A76C23A002D868A /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA649D72A76C23A002D868A /* ProductRow.swift */; };
 		3CFE4CE72A615CB100C232D1 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE4CE62A615CB100C232D1 /* CloseButton.swift */; };
 		FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BB2A48989100EC1809 /* AppDelegate.swift */; };
 		FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02E8BD2A48989100EC1809 /* ARViewController.swift */; };
@@ -47,7 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CA649CF2A76BE39002D868A /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		3CA649CF2A76BE39002D868A /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		3CA649D12A76C07B002D868A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		3CA649D32A76C0E2002D868A /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		3CA649D52A76C18E002D868A /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		3CA649D72A76C23A002D868A /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		3CFE4CE62A615CB100C232D1 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		FC02E8B82A48989100EC1809 /* RealityFromQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityFromQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8BB2A48989100EC1809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +108,8 @@
 		3CA649CE2A76BE27002D868A /* ProductListView */ = {
 			isa = PBXGroup;
 			children = (
-				3CA649CF2A76BE39002D868A /* ProductListView.swift */,
+				3CA649CF2A76BE39002D868A /* ProductList.swift */,
+				3CA649D72A76C23A002D868A /* ProductRow.swift */,
 			);
 			path = ProductListView;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1EE9EC2A4C1A87004C8976 /* drummer.usdz */,
+				3CA649D32A76C0E2002D868A /* products.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 			children = (
 				FC1EEA052A4C79A3004C8976 /* Navigate.swift */,
 				FC1EEA072A4C79B4004C8976 /* DeferView.swift */,
+				3CA649D52A76C18E002D868A /* ModelData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -226,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1EEA0A2A4DD954004C8976 /* Model.swift */,
+				3CA649D12A76C07B002D868A /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1EE9ED2A4C1A87004C8976 /* drummer.usdz in Resources */,
+				3CA649D42A76C0E2002D868A /* products.json in Resources */,
 				FC02E8C82A48989200EC1809 /* LaunchScreen.storyboard in Resources */,
 				FC02E8C52A48989200EC1809 /* Assets.xcassets in Resources */,
 			);
@@ -386,12 +399,15 @@
 			files = (
 				FC1EEA082A4C79B4004C8976 /* DeferView.swift in Sources */,
 				FC1EE9FA2A4C5E56004C8976 /* PrimaryButton.swift in Sources */,
-				3CA649D02A76BE39002D868A /* ProductListView.swift in Sources */,
+				3CA649D22A76C07B002D868A /* Product.swift in Sources */,
+				3CA649D02A76BE39002D868A /* ProductList.swift in Sources */,
 				FC1EE9FF2A4C5FEC004C8976 /* MenuViewModel.swift in Sources */,
+				3CA649D62A76C18E002D868A /* ModelData.swift in Sources */,
 				FC1EEA0B2A4DD954004C8976 /* Model.swift in Sources */,
 				FC1EEA032A4C60F4004C8976 /* UIConstants.swift in Sources */,
 				FC02E8BE2A48989100EC1809 /* ARViewController.swift in Sources */,
 				3CFE4CE72A615CB100C232D1 /* CloseButton.swift in Sources */,
+				3CA649D82A76C23A002D868A /* ProductRow.swift in Sources */,
 				FC1EE9F42A4C34C2004C8976 /* ARViewContainer.swift in Sources */,
 				FC1EEA012A4C60C1004C8976 /* SecondaryButton.swift in Sources */,
 				FC02E8BC2A48989100EC1809 /* AppDelegate.swift in Sources */,

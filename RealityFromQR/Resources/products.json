@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Pizza",
+        "imageName": "pizza.jpg",
+        "modelFileName": "pizza.usdz"
+    },
+    {
+        "id": 2,
+        "name": "Soda",
+        "imageName": "soda.jpg",
+        "modelFileName": "soda.usdz"
+    }
+]

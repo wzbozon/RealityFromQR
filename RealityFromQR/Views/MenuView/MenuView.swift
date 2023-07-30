@@ -47,7 +47,7 @@ struct MenuView: View {
                     .buttonStyle(.secondary)
 
                     Navigate(when: $viewModel.isShowingProductList) {
-                        ProductListView()
+                        ProductList()
                     }
 
                     Navigate(when: $viewModel.isShowingCameraView) {
