@@ -13,7 +13,9 @@ struct ProductRow: View {
     var body: some View {
         HStack {
             AsyncImage(url: product.imageUrl) { image in
-                image.resizable()
+                image
+                    .resizable()
+                    .scaledToFit()
             } placeholder: {
                 ProgressView()
             }

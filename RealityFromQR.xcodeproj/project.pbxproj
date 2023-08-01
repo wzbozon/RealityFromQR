@@ -51,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C5DAD0B2A79518D00F01D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3CA649CF2A76BE39002D868A /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		3CA649D12A76C07B002D868A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3CA649D32A76C0E2002D868A /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		FC02E8BA2A48989100EC1809 /* RealityFromQR */ = {
 			isa = PBXGroup;
 			children = (
+				3C5DAD0B2A79518D00F01D2F /* Info.plist */,
 				FC1EEA092A4DD94C004C8976 /* Model */,
 				FC1EEA042A4C799B004C8976 /* Utils */,
 				FC1EE9F72A4C5E3D004C8976 /* UIComponents */,
@@ -584,6 +586,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFV3M47D7P;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RealityFromQR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -614,6 +617,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFV3M47D7P;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RealityFromQR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
