@@ -1,8 +1,8 @@
 //
-//  MenuViewModel.swift
+//  ProductDetailViewModel.swift
 //  RealityFromQR
 //
-//  Created by Denis Kutlubaev on 28/06/2023.
+//  Created by Denis Kutlubaev on 03/08/2023.
 //
 
 import ARKit
@@ -11,23 +11,17 @@ import Foundation
 import RealityKit
 
 @MainActor
-final class MenuViewModel: ObservableObject {
+final class ProductDetailViewModel: ObservableObject {
     @Published var isShowingCameraView = false
-    @Published var isShowingProductList = false
-    @Published var isShowingFileImporter = false
-    @Published var isShowingStatistics = false
-    @Published var isRenderOptionsEnabled = true
 
-    func selectFileTapped() {
-        isShowingFileImporter = true
+    let product: Product
+
+    init(product: Product) {
+        self.product = product
     }
 
-    func useDefaultModelTapped() {
-        isShowingCameraView = true
-    }
+    func downloadFileTapped() {
 
-    func productListTapped() {
-        isShowingProductList = true
     }
 
     func handlePickedFile(_ url: URL) {

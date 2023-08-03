@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ProductListView: View {
     @State var productId: Int?
+    @State var isShowingProductDetailView = false
 
     var body: some View {
         List(products) { product in
             NavigationLink(tag: product.id, selection: self.$productId) {
-                ProductDetailView(product: product)
+                ProductDetailView(
+                    viewModel: ProductDetailViewModel(product: product),
+                    isPresented: $isShowingProductDetailView
+                )
             } label: {
                 ProductRowView(product: product)
             }
