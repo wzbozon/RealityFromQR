@@ -15,7 +15,7 @@ struct MenuView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack(alignment: .center) {
                 Image(systemName: Constants.imageName)
                     .font(Constants.imageFont)
@@ -47,7 +47,7 @@ struct MenuView: View {
                     .buttonStyle(.secondary)
 
                     Navigate(when: $viewModel.isShowingProductList) {
-                        ProductList()
+                        ProductListView()
                     }
 
                     Navigate(when: $viewModel.isShowingCameraView) {
