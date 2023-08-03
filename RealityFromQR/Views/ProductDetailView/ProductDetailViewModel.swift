@@ -11,37 +11,46 @@ import Foundation
 import RealityKit
 
 @MainActor
-final class ProductDetailViewModel: ObservableObject {
+final class ProductDetailViewModel: NSObject, ObservableObject {
     @Published var isShowingCameraView = false
 
     let product: Product
+
+    private lazy var downloadSession: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        return URLSession(configuration: configuration, delegate: nil, delegateQueue: .main)
+    }()
 
     init(product: Product) {
         self.product = product
     }
 
-    func downloadFileTapped() {
-
-    }
-
-    func handlePickedFile(_ url: URL) {
-        print("Did select file: \(url)")
+    @MainActor
+    func fetchARModel() async throws {
+        guard let url = URL(string: AppConstants.baseURL + product.modelFileName) else {
+            print("Error: invalid AR model URL")
+            return
+        }
 
         do {
-            var url = url
-            // Load usdz files directly
-            // For reality files append a scene name
-            if url.pathExtension == "reality" {
-                url = url.appendingPathComponent(AppConstants.sceneName, isDirectory: false)
-            }
+            let tuple = try await URLSession.shared.download(from: url)
+            let destinationURL = tuple.0
+            let newURL = destinationURL.deletingPathExtension().appendingPathExtension("usdz")
+            try FileManager.default.moveItem(at: destinationURL, to: newURL)
 
-            model.entity = try Entity.load(contentsOf: url)
+            model.entity = try Entity.load(contentsOf: newURL)
             print("Model loaded")
 
             // Show CameraView, it will setup ARView with a scene / entity in Model
             isShowingCameraView = true
         } catch {
             print("Failed to load entity. Error: \(error)")
+        }
+    }
+
+    func downloadFileTapped() {
+        Task {
+            try? await fetchARModel()
         }
     }
 

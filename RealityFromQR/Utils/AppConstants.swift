@@ -9,4 +9,5 @@ import Foundation
 
 struct AppConstants {
     static let sceneName = "Scene"
+    static let baseURL = "http://ar.alwawee.ru/"
 }

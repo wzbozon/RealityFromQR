@@ -31,6 +31,10 @@ struct MenuView: View {
                         Text("Enable render options")
                     }
 
+                    Toggle(isOn: $viewModel.isUsingQRCode) {
+                        Text("Attach to QR code")
+                    }
+
                     Button("Select File") {
                         viewModel.selectFileTapped()
                     }
@@ -53,7 +57,8 @@ struct MenuView: View {
                     Navigate(when: $viewModel.isShowingCameraView) {
                         CameraView(
                             isShowingStatistics: viewModel.isShowingStatistics,
-                            isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled
+                            isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled,
+                            isUsingQRCode: viewModel.isUsingQRCode
                         )
                     }
                 }

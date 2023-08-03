@@ -11,9 +11,10 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
-    init(isShowingStatistics: Bool, isRenderOptionsEnabled: Bool) {
+    init(isShowingStatistics: Bool, isRenderOptionsEnabled: Bool, isUsingQRCode: Bool) {
         self.isShowingStatistics = isShowingStatistics
         self.isRenderOptionsEnabled = isRenderOptionsEnabled
+        self.isUsingQRCode = isUsingQRCode
         super.init(nibName: nil, bundle: nil)
         print("[ARViewController] init")
     }
@@ -45,30 +46,41 @@ class ARViewController: UIViewController {
     private let model = Model.shared
     private let isShowingStatistics: Bool
     private let isRenderOptionsEnabled: Bool
+    private let isUsingQRCode: Bool
 }
 
 // MARK: - ARSessionDelegate
 
 extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        guard
-            let imageAnchor = anchors[0] as? ARImageAnchor,
-            let imageName = imageAnchor.name,
-            imageName == Constants.qrCodeImageName
-        else {
-            return
-        }
+        if isUsingQRCode {
+            guard
+                let imageAnchor = anchors[0] as? ARImageAnchor,
+                let imageName = imageAnchor.name,
+                imageName == Constants.qrCodeImageName
+            else {
+                return
+            }
 
-        // AnchorEntity(world: imageAnchor.transform) results in anchoring
-        // virtual content to the real world.  Content anchored like this
-        // will remain in position even if the reference image moves.
-        let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
-        arView.scene.addAnchor(originalImageAnchor)
+            // AnchorEntity(world: imageAnchor.transform) results in anchoring
+            // virtual content to the real world.  Content anchored like this
+            // will remain in position even if the reference image moves.
+            let originalImageAnchor = AnchorEntity(world: imageAnchor.transform)
+            arView.scene.addAnchor(originalImageAnchor)
 
-        if let entity = model.entity {
-            setupEntity(entity, originalImageAnchor)
+            if let entity = model.entity {
+                setupEntity(entity, originalImageAnchor)
+            } else {
+                loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
+            }
         } else {
-            loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
+            guard let planeAnchor = anchors[0] as? ARPlaneAnchor else { return }
+            let anchor = AnchorEntity(world: planeAnchor.transform)
+            arView.scene.addAnchor(anchor)
+
+            if let entity = model.entity {
+                setupEntity(entity, anchor)
+            }
         }
     }
 }
@@ -128,8 +140,13 @@ private extension ARViewController {
         }
 
         let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = referenceImages
-        configuration.maximumNumberOfTrackedImages = 1
+
+        if isUsingQRCode {
+            configuration.detectionImages = referenceImages
+            configuration.maximumNumberOfTrackedImages = 1
+        } else {
+            configuration.planeDetection = .horizontal
+        }
 
         arView.session.run(configuration)
     }

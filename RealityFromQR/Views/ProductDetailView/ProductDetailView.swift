@@ -34,7 +34,8 @@ struct ProductDetailView: View {
             Navigate(when: $viewModel.isShowingCameraView) {
                 CameraView(
                     isShowingStatistics: false,
-                    isRenderOptionsEnabled: false
+                    isRenderOptionsEnabled: false,
+                    isUsingQRCode: false
                 )
             }
         }
