@@ -11,28 +11,12 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
-    init(isShowingStatistics: Bool, isRenderOptionsEnabled: Bool, isUsingQRCode: Bool) {
-        self.isShowingStatistics = isShowingStatistics
-        self.isRenderOptionsEnabled = isRenderOptionsEnabled
-        self.isUsingQRCode = isUsingQRCode
-        super.init(nibName: nil, bundle: nil)
-        print("[ARViewController] init")
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         setupLayout()
         setupARView()
-    }
-
-    deinit {
-        print("[ARViewController] deinit")
     }
 
     private lazy var arView: ARView = {
@@ -44,16 +28,13 @@ class ARViewController: UIViewController {
 
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
-    private let isShowingStatistics: Bool
-    private let isRenderOptionsEnabled: Bool
-    private let isUsingQRCode: Bool
 }
 
 // MARK: - ARSessionDelegate
 
 extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        if isUsingQRCode {
+        if UserDefaults.isUsingQRCode {
             guard
                 let imageAnchor = anchors[0] as? ARImageAnchor,
                 let imageName = imageAnchor.name,
@@ -118,13 +99,13 @@ private extension ARViewController {
         arView.session.delegate = self
         arView.automaticallyConfigureSession = false
 
-        if isShowingStatistics {
+        if UserDefaults.isShowingStatistics {
             arView.debugOptions = [.showStatistics]
         } else {
             arView.debugOptions = []
         }
 
-        if isRenderOptionsEnabled {
+        if UserDefaults.isRenderOptionsEnabled {
             arView.renderOptions = []
         } else {
             arView.renderOptions = [
@@ -141,7 +122,7 @@ private extension ARViewController {
 
         let configuration = ARWorldTrackingConfiguration()
 
-        if isUsingQRCode {
+        if UserDefaults.isUsingQRCode {
             configuration.detectionImages = referenceImages
             configuration.maximumNumberOfTrackedImages = 1
         } else {

@@ -43,11 +43,7 @@ struct ProductDetailView: View {
                 .opacity(viewModel.progress > 0 && viewModel.progress < 1.0 ? 1 : 0)
 
             Navigate(when: $viewModel.isShowingCameraView) {
-                CameraView(
-                    isShowingStatistics: false,
-                    isRenderOptionsEnabled: false,
-                    isUsingQRCode: false
-                )
+                CameraView()
             }
         }
         .padding(.horizontal, 20)

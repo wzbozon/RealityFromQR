@@ -10,6 +10,15 @@ import SwiftUI
 struct MenuView: View {
     @StateObject private var viewModel: MenuViewModel
 
+    @AppStorage(UDKey.isShowingStatistics)
+    private var isShowingStatistics: Bool = false
+
+    @AppStorage(UDKey.isRenderOptionsEnabled)
+    private var isRenderOptionsEnabled: Bool = false
+
+    @AppStorage(UDKey.isUsingQRCode)
+    private var isUsingQRCode: Bool = false
+
     init(viewModel: MenuViewModel, isPresented: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -23,15 +32,15 @@ struct MenuView: View {
                 VStack {
                     Spacer()
 
-                    Toggle(isOn: $viewModel.isShowingStatistics) {
+                    Toggle(isOn: $isShowingStatistics) {
                         Text("Show statistics")
                     }
 
-                    Toggle(isOn: $viewModel.isRenderOptionsEnabled) {
+                    Toggle(isOn: $isRenderOptionsEnabled) {
                         Text("Enable render options")
                     }
 
-                    Toggle(isOn: $viewModel.isUsingQRCode) {
+                    Toggle(isOn: $isUsingQRCode) {
                         Text("Attach to QR code")
                     }
 
@@ -55,11 +64,7 @@ struct MenuView: View {
                     }
 
                     Navigate(when: $viewModel.isShowingCameraView) {
-                        CameraView(
-                            isShowingStatistics: viewModel.isShowingStatistics,
-                            isRenderOptionsEnabled: viewModel.isRenderOptionsEnabled,
-                            isUsingQRCode: viewModel.isUsingQRCode
-                        )
+                        CameraView()
                     }
                 }
                 .padding()

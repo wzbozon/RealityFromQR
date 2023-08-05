@@ -15,9 +15,6 @@ final class MenuViewModel: ObservableObject {
     @Published var isShowingCameraView = false
     @Published var isShowingProductList = false
     @Published var isShowingFileImporter = false
-    @Published var isShowingStatistics = false
-    @Published var isRenderOptionsEnabled = true
-    @Published var isUsingQRCode = true
 
     func selectFileTapped() {
         isShowingFileImporter = true
@@ -53,4 +50,5 @@ final class MenuViewModel: ObservableObject {
     }
 
     private let model = Model.shared
+    private var disposeBag = Set<AnyCancellable>()
 }
