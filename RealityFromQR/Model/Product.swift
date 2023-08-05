@@ -38,8 +38,7 @@ struct Product: Hashable, Identifiable {
     }
 
     var savedModelFileURL: URL {
-        URL.documentsDirectory
-            .appending(path: "\(modelFileName)")
+        URL.documentsDirectory.appending(path: "\(modelFileName)")
     }
 }
 

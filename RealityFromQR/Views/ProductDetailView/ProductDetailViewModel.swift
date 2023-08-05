@@ -59,7 +59,11 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
 
     func downloadFileTapped() {
         Task {
-            try? await fetchARModel()
+            if FileManager.default.fileExists(atPath: product.savedModelFileURL.path()) {
+                loadARModel()
+            } else {
+                try? await fetchARModel()
+            }
         }
     }
 
@@ -76,6 +80,8 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
         self.download = nil
 
         loadARModel()
+
+        product.isDownloading = false
     }
 
     func pauseDownload() {
