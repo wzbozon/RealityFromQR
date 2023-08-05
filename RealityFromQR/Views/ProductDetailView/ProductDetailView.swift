@@ -26,10 +26,18 @@ struct ProductDetailView: View {
 
             Text(viewModel.product.name)
 
-            Button("View in AR") {
+            Button {
                 viewModel.downloadFileTapped()
+            } label: {
+                if viewModel.product.isDownloading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                } else {
+                    Text("View in AR")
+                }
             }
             .buttonStyle(.primary)
+            .disabled(viewModel.product.isDownloading)
 
             ProgressView(value: viewModel.progress)
                 .opacity(viewModel.progress > 0 && viewModel.progress < 1.0 ? 1 : 0)

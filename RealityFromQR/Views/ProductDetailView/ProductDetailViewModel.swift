@@ -14,6 +14,7 @@ import RealityKit
 final class ProductDetailViewModel: NSObject, ObservableObject {
     @Published var isShowingCameraView = false
     @Published var product: Product
+    @Published var isLoading = false
 
     var progress: Double {
         product.progress
