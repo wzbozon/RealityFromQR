@@ -13,8 +13,14 @@ import RealityKit
 @MainActor
 final class ProductDetailViewModel: NSObject, ObservableObject {
     @Published var isShowingCameraView = false
+    @Published var product: Product
 
-    let product: Product
+    var progress: Double {
+        product.progress
+    }
+
+    private var download: Download?
+    private let model = Model.shared
 
     private lazy var downloadSession: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -25,6 +31,7 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
         self.product = product
     }
 
+    /*
     @MainActor
     func fetchARModel() async throws {
         guard let url = URL(string: AppConstants.baseURL + product.modelFileName) else {
@@ -47,6 +54,7 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
             print("Failed to load entity. Error: \(error)")
         }
     }
+    */
 
     func downloadFileTapped() {
         Task {
@@ -54,5 +62,56 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
         }
     }
 
-    private let model = Model.shared
+    @MainActor
+    func fetchARModel() async throws {
+        guard download == nil, let modelUrl = product.modelUrl else { return }
+
+        let download = Download(url: modelUrl, downloadSession: downloadSession)
+        self.download = download
+        product.isDownloading = true
+        for await event in download.events {
+            process(event)
+        }
+        self.download = nil
+
+        loadARModel()
+    }
+
+    func pauseDownload() {
+        download?.pause()
+        product.isDownloading = false
+    }
+
+    func resumeDownload() {
+        download?.resume()
+        product.isDownloading = true
+    }
+}
+
+private extension ProductDetailViewModel {
+    func process(_ event: Download.Event) {
+        switch event {
+        case let .progress(current, total):
+            product.update(currentBytes: current, totalBytes: total)
+        case let .success(url):
+            saveFile(at: url)
+        }
+    }
+
+    func saveFile(at url: URL) {
+        let fileManager = FileManager.default
+        try? fileManager.moveItem(at: url, to: product.savedModelFileURL)
+    }
+
+    func loadARModel() {
+        do {
+            model.entity = try Entity.load(contentsOf: product.savedModelFileURL)
+            print("Model loaded")
+
+            // Show CameraView, it will setup ARView with a scene / entity in Model
+            isShowingCameraView = true
+        } catch {
+            print("Failed to load entity. Error: \(error)")
+        }
+    }
 }

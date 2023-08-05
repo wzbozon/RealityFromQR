@@ -31,6 +31,9 @@ struct ProductDetailView: View {
             }
             .buttonStyle(.primary)
 
+            ProgressView(value: viewModel.progress)
+                .opacity(viewModel.progress > 0 && viewModel.progress < 1.0 ? 1 : 0)
+
             Navigate(when: $viewModel.isShowingCameraView) {
                 CameraView(
                     isShowingStatistics: false,
