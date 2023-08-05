@@ -23,6 +23,7 @@ struct ProductDetailView: View {
             } placeholder: {
                 ProgressView()
             }
+            .frame(width: 200, height: 200)
 
             Text(viewModel.product.name)
 
