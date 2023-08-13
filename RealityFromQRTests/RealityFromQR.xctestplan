@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "31F6AB81-AFC6-44AD-88B9-4A58AB83C4E6",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:RealityFromQR.xcodeproj",
+        "identifier" : "FC02E8CC2A48989200EC1809",
+        "name" : "RealityFromQRTests"
+      }
+    }
+  ],
+  "version" : 1
+}

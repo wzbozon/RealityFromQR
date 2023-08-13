@@ -63,6 +63,7 @@
 		3C91FCA82A7E670500A75858 /* UDKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDKey.swift; sourceTree = "<group>"; };
 		3C91FCAA2A7E678A00A75858 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		3C91FCAE2A7E6CDA00A75858 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3CA067242A88AD1C00FA9CE5 /* RealityFromQR.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RealityFromQR.xctestplan; sourceTree = "<group>"; };
 		3CA649CF2A76BE39002D868A /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		3CA649D12A76C07B002D868A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3CA649D32A76C0E2002D868A /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FC02E8D12A48989200EC1809 /* RealityFromQRTests.swift */,
+				3CA067242A88AD1C00FA9CE5 /* RealityFromQR.xctestplan */,
 			);
 			path = RealityFromQRTests;
 			sourceTree = "<group>";
