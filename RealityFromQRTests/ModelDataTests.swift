@@ -26,6 +26,29 @@ final class ModelDataTests: XCTestCase {
             thrownError as? ModelDataError,
             .fileNotFound("Couldn't find test.json in main bundle.")
         )
+
+        XCTAssertNotEqual(
+            thrownError as? ModelDataError,
+            .fileNotParsed("")
+        )
+    }
+
+    func testLoadModelDataFileNotParsed() {
+        var thrownError: Error?
+
+        XCTAssertThrowsError(try ModelData.load("products-corrupt.json") as [Product]) {
+            thrownError = $0
+        }
+
+        XCTAssertTrue(
+            thrownError is ModelDataError,
+            "Unexpected error type: \(type(of: thrownError))"
+        )
+
+        XCTAssertEqual(
+            thrownError as? ModelDataError,
+            .fileNotParsed("")
+        )
     }
 
     func testLoadModelData() throws {
