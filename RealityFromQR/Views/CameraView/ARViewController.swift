@@ -11,15 +11,27 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
+    init(userDefaults: UserDefaults = UserDefaults.standard) {
+        self.userDefaults = userDefaults
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         setupLayout()
         setupARView()
+
+        didSetupView = true
     }
 
-    private lazy var arView: ARView = {
+    lazy var arView: ARView = {
         let view = ARView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -28,17 +40,20 @@ class ARViewController: UIViewController {
 
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
+    private let userDefaults: UserDefaults
+    private(set) var didSetupView = false
 }
 
 // MARK: - ARSessionDelegate
 
 extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        if UserDefaults.isUsingQRCode {
+        // TODO: https://gist.github.com/CassiusPacheco/bf3fdc9e27b189d9b2c858caa65a3b67
+        if let value = userDefaults.value(forKey: UDKey.isUsingQRCode) as? Bool, value == true {
             guard
                 let imageAnchor = anchors[0] as? ARImageAnchor,
                 let imageName = imageAnchor.name,
-                imageName == Constants.qrCodeImageName
+                imageName == AppConstants.qrCodeImageName
             else {
                 return
             }
@@ -52,7 +67,7 @@ extension ARViewController: ARSessionDelegate {
             if let entity = model.entity {
                 setupEntity(entity, originalImageAnchor)
             } else {
-                loadEntityAsync(name: Constants.defaultModelFileName, anchor: originalImageAnchor)
+                loadEntityAsync(name: AppConstants.defaultModelFileName, anchor: originalImageAnchor)
             }
         } else {
             guard let planeAnchor = anchors[0] as? ARPlaneAnchor else { return }
@@ -69,12 +84,6 @@ extension ARViewController: ARSessionDelegate {
 // MARK: - Private
 
 private extension ARViewController {
-    enum Constants {
-        static let defaultModelFileName = "drummer.usdz"
-        static let qrCodeImageName = "qrcode"
-        static let imageGroupName = "AR Resources"
-    }
-
     func setupView() {
         view.addSubview(arView)
     }
@@ -89,8 +98,9 @@ private extension ARViewController {
     }
 
     func setupARView() {
+#if !targetEnvironment(simulator)
         guard let referenceImages = ARReferenceImage.referenceImages(
-            inGroupNamed: Constants.imageGroupName,
+            inGroupNamed: AppConstants.imageGroupName,
             bundle: nil
         ) else {
             fatalError("Missing expected asset catalog resources.")
@@ -98,6 +108,7 @@ private extension ARViewController {
 
         arView.session.delegate = self
         arView.automaticallyConfigureSession = false
+#endif
 
         if UserDefaults.isShowingStatistics {
             arView.debugOptions = [.showStatistics]
@@ -122,12 +133,14 @@ private extension ARViewController {
 
         let configuration = ARWorldTrackingConfiguration()
 
+#if !targetEnvironment(simulator)
         if UserDefaults.isUsingQRCode {
             configuration.detectionImages = referenceImages
             configuration.maximumNumberOfTrackedImages = 1
         } else {
             configuration.planeDetection = .horizontal
         }
+#endif
 
         arView.session.run(configuration)
     }

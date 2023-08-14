@@ -12,8 +12,10 @@ import ARKit
 struct CameraView: View {
     var body: some View {
         ZStack {
+#if !targetEnvironment(simulator)
             ARViewContainer()
                 .edgesIgnoringSafeArea(.all)
+#endif
         }
     }
 }

@@ -6,30 +6,76 @@
 //
 
 import XCTest
+import RealityKit
+@testable import RealityFromQR
 
+@MainActor
 final class MenuViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: MenuViewModel!
+    let model = Model.shared
+
+    override func setUp() {
+        viewModel = MenuViewModel()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        viewModel = nil
+
+        let entity: Entity? = nil
+        model.entity = entity
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSelectFileTapped() {
+        viewModel.selectFileTapped()
+        XCTAssertTrue(viewModel.isShowingFileImporter)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testUseDefaultModelTapped() {
+        viewModel.useDefaultModelTapped()
+        XCTAssertTrue(viewModel.isShowingCameraView)
+    }
+
+    func testProductListTapped() {
+        viewModel.productListTapped()
+        XCTAssertTrue(viewModel.isShowingProductList)
+    }
+
+    func testHandlePickedFile() throws {
+        guard let url = Bundle.main.url(forResource: AppConstants.defaultModelFileName, withExtension: nil) else {
+            throw URLError(.badURL)
         }
+
+        XCTAssertNil(model.entity)
+
+        viewModel.handlePickedFile(url)
+
+        XCTAssertNotNil(model.entity)
+    }
+
+    func testHandleFileImporterSuccessResult() throws {
+        guard let url = Bundle.main.url(forResource: AppConstants.defaultModelFileName, withExtension: nil) else {
+            throw URLError(.badURL)
+        }
+
+        XCTAssertNil(model.entity)
+
+        let result: Result<[URL], Error> = .success([url])
+
+        viewModel.handleFileImporterResult(result)
+
+        XCTAssertNotNil(model.entity)
+    }
+
+    func testHandleFileImporterErrorResult() throws {
+        XCTAssertNil(model.entity)
+
+        let error = URLError(.notConnectedToInternet)
+        let result: Result<[URL], Error> = .failure(error)
+
+        viewModel.handleFileImporterResult(result)
+
+        XCTAssertNil(model.entity)
     }
 
 }

@@ -77,21 +77,7 @@ struct MenuView: View {
             allowedContentTypes: [.usdz, .realityFile],
             allowsMultipleSelection: false
         ) { result in
-            switch result {
-            case .success(let files):
-                files.forEach { file in
-                    guard file.startAccessingSecurityScopedResource() else {
-                        print("Error: no access")
-                        return
-                    }
-
-                    viewModel.handlePickedFile(file)
-
-                    file.stopAccessingSecurityScopedResource()
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
+            self.viewModel.handleFileImporterResult(result)
         }
     }
 

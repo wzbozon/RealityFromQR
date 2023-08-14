@@ -49,6 +49,24 @@ final class MenuViewModel: ObservableObject {
         }
     }
 
+    func handleFileImporterResult(_ result: Result<[URL], Error>) {
+        switch result {
+        case .success(let files):
+            files.forEach { file in
+                guard file.startAccessingSecurityScopedResource() else {
+                    print("Error: no access")
+                    return
+                }
+
+                handlePickedFile(file)
+
+                file.stopAccessingSecurityScopedResource()
+            }
+        case .failure(let error):
+            print("Error: \(error)")
+        }
+    }
+
     private let model = Model.shared
     private var disposeBag = Set<AnyCancellable>()
 }
