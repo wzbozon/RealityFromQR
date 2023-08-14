@@ -30,6 +30,6 @@ struct ProductRowView: View {
 
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProductRowView(product: products[0])
+        ProductRowView(product: ModelData.products[0])
     }
 }

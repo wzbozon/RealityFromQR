@@ -7,26 +7,34 @@
 
 import Foundation
 
-var products: [Product] = load("products.json")
+enum ModelDataError: Error, Equatable {
+    case fileNotFound(String)
+    case fileNotLoaded(String)
+}
 
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
+class ModelData {
+    // swiftlint:disable force_try
+    static var products: [Product] = try! ModelData.load("products.json")
 
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
-        fatalError("Couldn't find \(filename) in main bundle.")
-    }
+    static func load<T: Decodable>(_ filename: String) throws -> T {
+        let data: Data
 
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+        else {
+            throw ModelDataError.fileNotFound("Couldn't find \(filename) in main bundle.")
+        }
 
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            throw ModelDataError.fileNotLoaded("Couldn't load \(filename) from main bundle:\n\(error)")
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
     }
 }

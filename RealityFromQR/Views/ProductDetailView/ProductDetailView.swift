@@ -55,7 +55,7 @@ struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ProductDetailView(
-                viewModel: ProductDetailViewModel(product: products[0]),
+                viewModel: ProductDetailViewModel(product: ModelData.products[0]),
                 isPresented: .constant(true)
             )
         }

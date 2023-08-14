@@ -12,7 +12,7 @@ struct ProductListView: View {
     @State var isShowingProductDetailView = false
 
     var body: some View {
-        List(products) { product in
+        List(ModelData.products) { product in
             NavigationLink(tag: product.id, selection: self.$productId) {
                 ProductDetailView(
                     viewModel: ProductDetailViewModel(product: product),

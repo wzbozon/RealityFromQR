@@ -29,7 +29,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:RealityFromQRTests/RealityFromQR.xctestplan">
+            reference = "container:RealityFromQRTests/RealityFromQR.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>

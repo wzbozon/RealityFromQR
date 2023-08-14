@@ -28,12 +28,28 @@ final class ProductTests: XCTestCase {
         XCTAssertEqual(url, "http://ar.alwawee.ru/image.jpg")
     }
 
-    func testModelUrl() throws {
+    func testModelUrl() {
         guard let url = product.modelUrl?.absoluteString else {
             XCTFail("No URL")
             return
         }
         XCTAssertEqual(url, "http://ar.alwawee.ru/model.usdz")
+    }
+
+    func testProgress() {
+        XCTAssertEqual(product.progress, 0)
+
+        product.update(currentBytes: 50, totalBytes: 100)
+        XCTAssertEqual(product.progress, 0.5)
+
+        product.update(currentBytes: 60, totalBytes: 60)
+        XCTAssertEqual(product.progress, 1.0)
+    }
+
+    func testSavedModelFileURL() {
+        XCTAssertFalse(product.savedModelFileURL.absoluteString.isEmpty)
+        XCTAssertTrue(product.savedModelFileURL.isFileURL)
+        XCTAssertEqual(product.savedModelFileURL.lastPathComponent, "model.usdz")
     }
 
 }
