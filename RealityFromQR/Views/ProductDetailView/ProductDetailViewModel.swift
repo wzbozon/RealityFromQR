@@ -32,31 +32,6 @@ final class ProductDetailViewModel: NSObject, ObservableObject {
         self.product = product
     }
 
-    /*
-    @MainActor
-    func fetchARModel() async throws {
-        guard let url = URL(string: AppConstants.baseURL + product.modelFileName) else {
-            print("Error: invalid AR model URL")
-            return
-        }
-
-        do {
-            let tuple = try await URLSession.shared.download(from: url)
-            let destinationURL = tuple.0
-            let newURL = destinationURL.deletingPathExtension().appendingPathExtension("usdz")
-            try FileManager.default.moveItem(at: destinationURL, to: newURL)
-
-            model.entity = try Entity.load(contentsOf: newURL)
-            print("Model loaded")
-
-            // Show CameraView, it will setup ARView with a scene / entity in Model
-            isShowingCameraView = true
-        } catch {
-            print("Failed to load entity. Error: \(error)")
-        }
-    }
-    */
-
     func downloadFileTapped() {
         Task {
             if FileManager.default.fileExists(atPath: product.savedModelFileURL.path()) {

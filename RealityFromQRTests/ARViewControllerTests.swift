@@ -7,6 +7,7 @@
 
 import XCTest
 import ARKit
+import RealityKit
 @testable import RealityFromQR
 
 final class ARViewControllerTests: XCTestCase {
@@ -14,6 +15,7 @@ final class ARViewControllerTests: XCTestCase {
     var viewController: ARViewController!
     var userDefaults: UserDefaults!
     var preferences: Preferences!
+    let model = Model.shared
 
     override func setUpWithError() throws {
         userDefaults = UserDefaults(suiteName: #file)
@@ -23,6 +25,8 @@ final class ARViewControllerTests: XCTestCase {
 
     override func tearDownWithError() throws {
         viewController = nil
+        let entity: Entity? = nil
+        model.entity = entity
     }
 
     func testViewDidLoad() throws {
@@ -33,9 +37,14 @@ final class ARViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.didSetupView)
     }
 
-    func testSessionDidAddAnchors() {
+    func testSessionDidAddAnchorsNoQRCode() throws {
         userDefaults.set(false, forKey: UDKey.isUsingQRCode)
         viewController = ARViewController(preferences: preferences)
+
+        guard let url = Bundle.main.url(forResource: AppConstants.defaultModelFileName, withExtension: nil) else {
+            throw URLError(.badURL)
+        }
+        model.entity = try Entity.load(contentsOf: url)
 
         let session = ARSession()
         let matrix = simd_float4x4([
@@ -48,6 +57,57 @@ final class ARViewControllerTests: XCTestCase {
         viewController.session(session, didAdd: anchors)
 
         XCTAssertEqual(viewController.arView.scene.anchors.count, 1)
+        XCTAssertTrue(viewController.didSetupEntity)
+    }
+
+    func testSessionDidAddAnchorsWithQRCode() throws {
+        userDefaults.set(true, forKey: UDKey.isUsingQRCode)
+        viewController = ARViewController(preferences: preferences)
+
+        guard let url = Bundle.main.url(forResource: AppConstants.defaultModelFileName, withExtension: nil) else {
+            throw URLError(.badURL)
+        }
+        model.entity = try Entity.load(contentsOf: url)
+
+        let session = ARSession()
+        let matrix = simd_float4x4([
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0]
+        ])
+
+        let planeAnchor = ARPlaneAnchor(anchor: .init(transform: matrix))
+        let anchors: [ARAnchor] = [planeAnchor]
+
+        viewController.session(session, didAdd: anchors)
+
+        XCTAssertEqual(viewController.arView.scene.anchors.count, 0)
+        XCTAssertFalse(viewController.didSetupEntity)
+    }
+
+    func testLoadEntityAsync() throws {
+        viewController = ARViewController(preferences: preferences)
+
+        let matrix = simd_float4x4([
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0]
+        ])
+
+        let planeAnchor = ARPlaneAnchor(anchor: .init(transform: matrix))
+        let anchor = AnchorEntity(world: planeAnchor.transform)
+        let expectation = self.expectation(description: "")
+        viewController.loadEntityAsync(
+            name: AppConstants.defaultModelFileName,
+            anchor: anchor,
+            onSuccess: {
+                expectation.fulfill()
+            }
+        )
+        waitForExpectations(timeout: 1)
+        XCTAssertTrue(viewController.didSetupEntity)
     }
 
 }

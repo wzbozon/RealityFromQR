@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C040F382A88B1C9002307FE /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C040F372A88B1C9002307FE /* ProductTests.swift */; };
+		3C15DCC22A8C09F4005FC1A0 /* ProductDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C15DCC12A8C09F4005FC1A0 /* ProductDetailViewTests.swift */; };
 		3C3B9F352A8AA39B004CAD90 /* products-corrupt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C3B9F302A8AA12D004CAD90 /* products-corrupt.json */; };
 		3C3B9F362A8AA3B2004CAD90 /* ModelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C040F842A8A4CCE002307FE /* ModelDataTests.swift */; };
 		3C3B9F392A8AA57E004CAD90 /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		3C040F372A88B1C9002307FE /* ProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
 		3C040F842A8A4CCE002307FE /* ModelDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataTests.swift; sourceTree = "<group>"; };
+		3C15DCC12A8C09F4005FC1A0 /* ProductDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewTests.swift; sourceTree = "<group>"; };
 		3C3B9F302A8AA12D004CAD90 /* products-corrupt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "products-corrupt.json"; sourceTree = "<group>"; };
 		3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
 		3C5DAD0B2A79518D00F01D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				3CA067242A88AD1C00FA9CE5 /* RealityFromQR.xctestplan */,
 				3C040F372A88B1C9002307FE /* ProductTests.swift */,
+				3C15DCC12A8C09F4005FC1A0 /* ProductDetailViewTests.swift */,
 				3C040F842A8A4CCE002307FE /* ModelDataTests.swift */,
 				3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */,
 				3C9E75A32A8AADF100CB052B /* ARViewControllerTests.swift */,
@@ -494,6 +497,7 @@
 				3C3B9F362A8AA3B2004CAD90 /* ModelDataTests.swift in Sources */,
 				3C3B9F392A8AA57E004CAD90 /* MenuViewModelTests.swift in Sources */,
 				3C9E75A42A8AADF200CB052B /* ARViewControllerTests.swift in Sources */,
+				3C15DCC22A8C09F4005FC1A0 /* ProductDetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

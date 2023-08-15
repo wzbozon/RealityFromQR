@@ -41,6 +41,7 @@ class ARViewController: UIViewController {
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
     private(set) var didSetupView = false
+    private(set) var didSetupEntity = false
     private let preferences: Preferences
 }
 
@@ -82,7 +83,7 @@ extension ARViewController: ARSessionDelegate {
 
 // MARK: - Private
 
-private extension ARViewController {
+extension ARViewController {
     func setupView() {
         view.addSubview(arView)
     }
@@ -147,13 +148,14 @@ private extension ARViewController {
         arView.session.run(configuration)
     }
 
-    func loadEntityAsync(name: String, anchor: AnchorEntity) {
+    func loadEntityAsync(name: String, anchor: AnchorEntity, onSuccess: (() -> Void)? = nil) {
         // Load the asset asynchronously
         ModelEntity.loadModelAsync(named: name)
             .sink(receiveCompletion: { error in
                 print("Error: \(error)")
             }, receiveValue: { [weak self] entity in
                 self?.setupEntity(entity, anchor)
+                onSuccess?()
             })
             .store(in: &disposeBag)
     }
@@ -166,5 +168,7 @@ private extension ARViewController {
         if let animation = entity.availableAnimations.first {
             entity.playAnimation(animation.repeat())
         }
+
+        didSetupEntity = true
     }
 }
