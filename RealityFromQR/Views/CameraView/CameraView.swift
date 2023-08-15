@@ -20,8 +20,10 @@ struct CameraView: View {
     }
 }
 
+#if !TESTING
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
         CameraView()
     }
 }
+#endif

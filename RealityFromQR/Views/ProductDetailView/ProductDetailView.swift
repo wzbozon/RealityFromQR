@@ -51,6 +51,7 @@ struct ProductDetailView: View {
     }
 }
 
+#if !TESTING
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -61,3 +62,4 @@ struct ProductDetailView_Previews: PreviewProvider {
         }
     }
 }
+#endif

@@ -30,6 +30,7 @@ struct SecondaryButton: ButtonStyle {
     private let pressedColor: Color = .black.opacity(0.5)
 }
 
+#if !TESTING
 struct SecondaryButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
@@ -43,6 +44,7 @@ struct SecondaryButton_Previews: PreviewProvider {
         }
     }
 }
+#endif
 
 extension ButtonStyle where Self == SecondaryButton {
     static var secondary: SecondaryButton {

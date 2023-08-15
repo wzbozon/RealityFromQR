@@ -28,8 +28,10 @@ struct ProductRowView: View {
     }
 }
 
+#if !TESTING
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
         ProductRowView(product: ModelData.products[0])
     }
 }
+#endif

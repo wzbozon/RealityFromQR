@@ -39,6 +39,7 @@ struct PrimaryButton: ButtonStyle {
     }
 }
 
+#if !TESTING
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
@@ -50,6 +51,7 @@ struct PrimaryButton_Previews: PreviewProvider {
         }
     }
 }
+#endif
 
 extension ButtonStyle where Self == PrimaryButton {
     static var primary: PrimaryButton {

@@ -25,8 +25,10 @@ struct ProductListView: View {
     }
 }
 
+#if !TESTING
 struct ProductList_Previews: PreviewProvider {
     static var previews: some View {
         ProductListView(productId: 0)
     }
 }
+#endif

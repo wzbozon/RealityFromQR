@@ -36,8 +36,10 @@ struct CloseButton: View {
     }
 }
 
+#if !TESTING
 struct CloseButton_Previews: PreviewProvider {
     static var previews: some View {
         CloseButton()
     }
 }
+#endif

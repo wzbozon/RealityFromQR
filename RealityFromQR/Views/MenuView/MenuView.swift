@@ -87,6 +87,7 @@ struct MenuView: View {
     }
 }
 
+#if !TESTING
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView(
@@ -95,3 +96,4 @@ struct MenuView_Previews: PreviewProvider {
         )
     }
 }
+#endif
