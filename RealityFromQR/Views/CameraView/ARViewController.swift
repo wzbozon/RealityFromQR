@@ -11,8 +11,8 @@ import RealityKit
 import UIKit
 
 class ARViewController: UIViewController {
-    init(userDefaults: UserDefaults = UserDefaults.standard) {
-        self.userDefaults = userDefaults
+    init(preferences: Preferences) {
+        self.preferences = preferences
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -40,16 +40,15 @@ class ARViewController: UIViewController {
 
     private var disposeBag = Set<AnyCancellable>()
     private let model = Model.shared
-    private let userDefaults: UserDefaults
     private(set) var didSetupView = false
+    private let preferences: Preferences
 }
 
 // MARK: - ARSessionDelegate
 
 extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        // TODO: https://gist.github.com/CassiusPacheco/bf3fdc9e27b189d9b2c858caa65a3b67
-        if let value = userDefaults.value(forKey: UDKey.isUsingQRCode) as? Bool, value == true {
+        if preferences.isUsingQRCode {
             guard
                 let imageAnchor = anchors[0] as? ARImageAnchor,
                 let imageName = imageAnchor.name,
@@ -98,25 +97,30 @@ private extension ARViewController {
     }
 
     func setupARView() {
-#if !targetEnvironment(simulator)
+#if targetEnvironment(simulator)
+        let referenceImages: Set<ARReferenceImage> = []
+#else
         guard let referenceImages = ARReferenceImage.referenceImages(
             inGroupNamed: AppConstants.imageGroupName,
-            bundle: nil
+            bundle: Bundle(for: ARViewController.self)
         ) else {
             fatalError("Missing expected asset catalog resources.")
         }
+#endif
 
         arView.session.delegate = self
+
+#if !targetEnvironment(simulator)
         arView.automaticallyConfigureSession = false
 #endif
 
-        if UserDefaults.isShowingStatistics {
+        if preferences.isShowingStatistics {
             arView.debugOptions = [.showStatistics]
         } else {
             arView.debugOptions = []
         }
 
-        if UserDefaults.isRenderOptionsEnabled {
+        if preferences.isRenderOptionsEnabled {
             arView.renderOptions = []
         } else {
             arView.renderOptions = [
@@ -133,14 +137,12 @@ private extension ARViewController {
 
         let configuration = ARWorldTrackingConfiguration()
 
-#if !targetEnvironment(simulator)
-        if UserDefaults.isUsingQRCode {
+        if preferences.isUsingQRCode {
             configuration.detectionImages = referenceImages
             configuration.maximumNumberOfTrackedImages = 1
         } else {
             configuration.planeDetection = .horizontal
         }
-#endif
 
         arView.session.run(configuration)
     }

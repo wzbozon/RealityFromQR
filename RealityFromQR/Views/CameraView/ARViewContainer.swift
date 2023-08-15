@@ -14,7 +14,7 @@ struct ARViewContainer: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARViewController
 
     func makeUIViewController(context: Context) -> ARViewController {
-        let viewController = ARViewController()
+        let viewController = ARViewController(preferences: Preferences())
         return viewController
     }
 

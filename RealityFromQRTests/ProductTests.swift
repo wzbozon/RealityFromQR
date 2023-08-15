@@ -13,7 +13,12 @@ final class ProductTests: XCTestCase {
     var product: Product!
 
     override func setUp() {
-        product = Product(id: 0, name: "Test", modelFileName: "model.usdz", imageName: "image.jpg")
+        product = Product(
+            id: 0,
+            name: "Test",
+            modelFileName: "model.usdz",
+            imageName: "image.jpg"
+        )
     }
 
     override func tearDown() {

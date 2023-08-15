@@ -13,10 +13,12 @@ final class ARViewControllerTests: XCTestCase {
 
     var viewController: ARViewController!
     var userDefaults: UserDefaults!
+    var preferences: Preferences!
 
     override func setUpWithError() throws {
         userDefaults = UserDefaults(suiteName: #file)
         userDefaults.removePersistentDomain(forName: #file)
+        preferences = Preferences(container: userDefaults)
     }
 
     override func tearDownWithError() throws {
@@ -24,16 +26,16 @@ final class ARViewControllerTests: XCTestCase {
     }
 
     func testViewDidLoad() throws {
-        viewController = ARViewController(userDefaults: userDefaults)
+        viewController = ARViewController(preferences: preferences)
         XCTAssertFalse(viewController.didSetupView)
-        viewController = ARViewController(userDefaults: userDefaults)
+        viewController = ARViewController(preferences: preferences)
         viewController.viewDidLoad()
         XCTAssertTrue(viewController.didSetupView)
     }
 
     func testSessionDidAddAnchors() {
         userDefaults.set(false, forKey: UDKey.isUsingQRCode)
-        viewController = ARViewController(userDefaults: userDefaults)
+        viewController = ARViewController(preferences: preferences)
 
         let session = ARSession()
         let matrix = simd_float4x4([
