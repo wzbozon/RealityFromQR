@@ -30,9 +30,16 @@ struct CloseButton: View {
                         width: UIConstants.buttonHeight,
                         height: UIConstants.buttonHeight
                     )
+                    .tag(Constants.imageTag)
             })
             .padding(.trailing)
+            .tag(Constants.buttonTag)
         }
+    }
+
+    enum Constants {
+        static let imageTag = 1
+        static let buttonTag = 2
     }
 }
 

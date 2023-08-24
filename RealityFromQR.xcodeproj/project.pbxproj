@@ -13,6 +13,8 @@
 		3C3B9F352A8AA39B004CAD90 /* products-corrupt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C3B9F302A8AA12D004CAD90 /* products-corrupt.json */; };
 		3C3B9F362A8AA3B2004CAD90 /* ModelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C040F842A8A4CCE002307FE /* ModelDataTests.swift */; };
 		3C3B9F392A8AA57E004CAD90 /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */; };
+		3C8D2D032A97349D0061B8AF /* CloseButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D2D022A97349D0061B8AF /* CloseButtonTests.swift */; };
+		3C8D2D062A9739060061B8AF /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C8D2D052A9739060061B8AF /* ViewInspector */; };
 		3C91FCA52A7D532900A75858 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C91FCA42A7D532900A75858 /* Download.swift */; };
 		3C91FCA92A7E670500A75858 /* UDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C91FCA82A7E670500A75858 /* UDKey.swift */; };
 		3C91FCAB2A7E678A00A75858 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C91FCAA2A7E678A00A75858 /* UserDefault.swift */; };
@@ -71,6 +73,7 @@
 		3C3B9F302A8AA12D004CAD90 /* products-corrupt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "products-corrupt.json"; sourceTree = "<group>"; };
 		3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
 		3C5DAD0B2A79518D00F01D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3C8D2D022A97349D0061B8AF /* CloseButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonTests.swift; sourceTree = "<group>"; };
 		3C91FCA42A7D532900A75858 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		3C91FCA82A7E670500A75858 /* UDKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDKey.swift; sourceTree = "<group>"; };
 		3C91FCAA2A7E678A00A75858 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8D2D062A9739060061B8AF /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +219,7 @@
 				3C040F842A8A4CCE002307FE /* ModelDataTests.swift */,
 				3C3B9F382A8AA57E004CAD90 /* MenuViewModelTests.swift */,
 				3C9E75A32A8AADF100CB052B /* ARViewControllerTests.swift */,
+				3C8D2D022A97349D0061B8AF /* CloseButtonTests.swift */,
 			);
 			path = RealityFromQRTests;
 			sourceTree = "<group>";
@@ -326,6 +331,8 @@
 			dependencies = (
 			);
 			name = RealityFromQR;
+			packageProductDependencies = (
+			);
 			productName = RealityFromQR;
 			productReference = FC02E8B82A48989100EC1809 /* RealityFromQR.app */;
 			productType = "com.apple.product-type.application";
@@ -344,6 +351,9 @@
 				FC02E8CF2A48989200EC1809 /* PBXTargetDependency */,
 			);
 			name = RealityFromQRTests;
+			packageProductDependencies = (
+				3C8D2D052A9739060061B8AF /* ViewInspector */,
+			);
 			productName = RealityFromQRTests;
 			productReference = FC02E8CD2A48989200EC1809 /* RealityFromQRTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -398,6 +408,9 @@
 				Base,
 			);
 			mainGroup = FC02E8AF2A48989100EC1809;
+			packageReferences = (
+				3C8D2D042A9739060061B8AF /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = FC02E8B92A48989100EC1809 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +513,7 @@
 				3C3B9F362A8AA3B2004CAD90 /* ModelDataTests.swift in Sources */,
 				3C3B9F392A8AA57E004CAD90 /* MenuViewModelTests.swift in Sources */,
 				3C9E75A42A8AADF200CB052B /* ARViewControllerTests.swift in Sources */,
+				3C8D2D032A97349D0061B8AF /* CloseButtonTests.swift in Sources */,
 				3C15DCC42A8C0D01005FC1A0 /* ProductListViewTests.swift in Sources */,
 				3C15DCC22A8C09F4005FC1A0 /* ProductDetailViewTests.swift in Sources */,
 			);
@@ -966,6 +980,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C8D2D042A9739060061B8AF /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C8D2D052A9739060061B8AF /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C8D2D042A9739060061B8AF /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC02E8B02A48989100EC1809 /* Project object */;
 }
