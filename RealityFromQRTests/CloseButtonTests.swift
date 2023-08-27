@@ -8,7 +8,7 @@
 import XCTest
 import ViewInspector
 import SwiftUI
-@testable import RealityFromQR
+@testable import ViewInAR
 
 final class CloseButtonTests: XCTestCase {
     func testButton() throws {

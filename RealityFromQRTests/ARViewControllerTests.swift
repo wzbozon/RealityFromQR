@@ -8,7 +8,7 @@
 import XCTest
 import ARKit
 import RealityKit
-@testable import RealityFromQR
+@testable import ViewInAR
 
 final class ARViewControllerTests: XCTestCase {
 

@@ -7,7 +7,7 @@
 
 import XCTest
 import RealityKit
-@testable import RealityFromQR
+@testable import ViewInAR
 
 @MainActor
 final class MenuViewModelTests: XCTestCase {

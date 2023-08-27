@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC02E8B72A48989100EC1809"
-               BuildableName = "RealityFromQR.app"
-               BlueprintName = "RealityFromQR"
-               ReferencedContainer = "container:RealityFromQR.xcodeproj">
+               BuildableName = "ViewInAR.app"
+               BlueprintName = "ViewInAR"
+               ReferencedContainer = "container:ViewInAR.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,9 +40,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC02E8CC2A48989200EC1809"
-               BuildableName = "RealityFromQRTests.xctest"
-               BlueprintName = "RealityFromQRTests"
-               ReferencedContainer = "container:RealityFromQR.xcodeproj">
+               BuildableName = "ViewInARTests.xctest"
+               BlueprintName = "ViewInARTests"
+               ReferencedContainer = "container:ViewInAR.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -51,9 +51,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC02E8D62A48989200EC1809"
-               BuildableName = "RealityFromQRUITests.xctest"
-               BlueprintName = "RealityFromQRUITests"
-               ReferencedContainer = "container:RealityFromQR.xcodeproj">
+               BuildableName = "ViewInARUITests.xctest"
+               BlueprintName = "ViewInARUITests"
+               ReferencedContainer = "container:ViewInAR.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC02E8B72A48989100EC1809"
-            BuildableName = "RealityFromQR.app"
-            BlueprintName = "RealityFromQR"
-            ReferencedContainer = "container:RealityFromQR.xcodeproj">
+            BuildableName = "ViewInAR.app"
+            BlueprintName = "ViewInAR"
+            ReferencedContainer = "container:ViewInAR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,9 +90,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC02E8B72A48989100EC1809"
-            BuildableName = "RealityFromQR.app"
-            BlueprintName = "RealityFromQR"
-            ReferencedContainer = "container:RealityFromQR.xcodeproj">
+            BuildableName = "ViewInAR.app"
+            BlueprintName = "ViewInAR"
+            ReferencedContainer = "container:ViewInAR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

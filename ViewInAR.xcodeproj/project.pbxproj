@@ -91,13 +91,13 @@
 		3CFDB5372A7B7F4100B411CB /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		3CFDB5392A7B7FC200B411CB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		3CFE4CE62A615CB100C232D1 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
-		FC02E8B82A48989100EC1809 /* RealityFromQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealityFromQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC02E8B82A48989100EC1809 /* ViewInAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewInAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8BB2A48989100EC1809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC02E8BD2A48989100EC1809 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		FC02E8C42A48989200EC1809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC02E8C72A48989200EC1809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FC02E8CD2A48989200EC1809 /* RealityFromQRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealityFromQRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC02E8D72A48989200EC1809 /* RealityFromQRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealityFromQRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC02E8CD2A48989200EC1809 /* ViewInARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewInARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC02E8D72A48989200EC1809 /* ViewInARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewInARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITests.swift; sourceTree = "<group>"; };
 		FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityFromQRUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC1EE9EC2A4C1A87004C8976 /* drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drummer.usdz; sourceTree = "<group>"; };
@@ -187,9 +187,9 @@
 		FC02E8B92A48989100EC1809 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC02E8B82A48989100EC1809 /* RealityFromQR.app */,
-				FC02E8CD2A48989200EC1809 /* RealityFromQRTests.xctest */,
-				FC02E8D72A48989200EC1809 /* RealityFromQRUITests.xctest */,
+				FC02E8B82A48989100EC1809 /* ViewInAR.app */,
+				FC02E8CD2A48989200EC1809 /* ViewInARTests.xctest */,
+				FC02E8D72A48989200EC1809 /* ViewInARUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,9 +320,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC02E8B72A48989100EC1809 /* RealityFromQR */ = {
+		FC02E8B72A48989100EC1809 /* ViewInAR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC02E8E12A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQR" */;
+			buildConfigurationList = FC02E8E12A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInAR" */;
 			buildPhases = (
 				FC02E8B42A48989100EC1809 /* Sources */,
 				FC02E8B52A48989100EC1809 /* Frameworks */,
@@ -333,16 +333,16 @@
 			);
 			dependencies = (
 			);
-			name = RealityFromQR;
+			name = ViewInAR;
 			packageProductDependencies = (
 			);
 			productName = RealityFromQR;
-			productReference = FC02E8B82A48989100EC1809 /* RealityFromQR.app */;
+			productReference = FC02E8B82A48989100EC1809 /* ViewInAR.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FC02E8CC2A48989200EC1809 /* RealityFromQRTests */ = {
+		FC02E8CC2A48989200EC1809 /* ViewInARTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC02E8E42A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQRTests" */;
+			buildConfigurationList = FC02E8E42A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInARTests" */;
 			buildPhases = (
 				FC02E8C92A48989200EC1809 /* Sources */,
 				FC02E8CA2A48989200EC1809 /* Frameworks */,
@@ -353,17 +353,17 @@
 			dependencies = (
 				FC02E8CF2A48989200EC1809 /* PBXTargetDependency */,
 			);
-			name = RealityFromQRTests;
+			name = ViewInARTests;
 			packageProductDependencies = (
 				3C8D2D052A9739060061B8AF /* ViewInspector */,
 			);
 			productName = RealityFromQRTests;
-			productReference = FC02E8CD2A48989200EC1809 /* RealityFromQRTests.xctest */;
+			productReference = FC02E8CD2A48989200EC1809 /* ViewInARTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FC02E8D62A48989200EC1809 /* RealityFromQRUITests */ = {
+		FC02E8D62A48989200EC1809 /* ViewInARUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC02E8E72A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQRUITests" */;
+			buildConfigurationList = FC02E8E72A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInARUITests" */;
 			buildPhases = (
 				FC02E8D32A48989200EC1809 /* Sources */,
 				FC02E8D42A48989200EC1809 /* Frameworks */,
@@ -374,9 +374,9 @@
 			dependencies = (
 				FC02E8D92A48989200EC1809 /* PBXTargetDependency */,
 			);
-			name = RealityFromQRUITests;
+			name = ViewInARUITests;
 			productName = RealityFromQRUITests;
-			productReference = FC02E8D72A48989200EC1809 /* RealityFromQRUITests.xctest */;
+			productReference = FC02E8D72A48989200EC1809 /* ViewInARUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -402,7 +402,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FC02E8B32A48989100EC1809 /* Build configuration list for PBXProject "RealityFromQR" */;
+			buildConfigurationList = FC02E8B32A48989100EC1809 /* Build configuration list for PBXProject "ViewInAR" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -418,9 +418,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC02E8B72A48989100EC1809 /* RealityFromQR */,
-				FC02E8CC2A48989200EC1809 /* RealityFromQRTests */,
-				FC02E8D62A48989200EC1809 /* RealityFromQRUITests */,
+				FC02E8B72A48989100EC1809 /* ViewInAR */,
+				FC02E8CC2A48989200EC1809 /* ViewInARTests */,
+				FC02E8D62A48989200EC1809 /* ViewInARUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -537,12 +537,12 @@
 /* Begin PBXTargetDependency section */
 		FC02E8CF2A48989200EC1809 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FC02E8B72A48989100EC1809 /* RealityFromQR */;
+			target = FC02E8B72A48989100EC1809 /* ViewInAR */;
 			targetProxy = FC02E8CE2A48989200EC1809 /* PBXContainerItemProxy */;
 		};
 		FC02E8D92A48989200EC1809 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FC02E8B72A48989100EC1809 /* RealityFromQR */;
+			target = FC02E8B72A48989100EC1809 /* ViewInAR */;
 			targetProxy = FC02E8D82A48989200EC1809 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -666,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealityFromQR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealityFromQR";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ViewInAR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ViewInAR";
 			};
 			name = Testing;
 		};
@@ -880,7 +880,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealityFromQR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealityFromQR";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ViewInAR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ViewInAR";
 			};
 			name = Debug;
 		};
@@ -900,7 +900,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealityFromQR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealityFromQR";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ViewInAR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ViewInAR";
 			};
 			name = Release;
 		};
@@ -943,7 +943,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC02E8B32A48989100EC1809 /* Build configuration list for PBXProject "RealityFromQR" */ = {
+		FC02E8B32A48989100EC1809 /* Build configuration list for PBXProject "ViewInAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC02E8DF2A48989200EC1809 /* Debug */,
@@ -953,7 +953,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC02E8E12A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQR" */ = {
+		FC02E8E12A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC02E8E22A48989200EC1809 /* Debug */,
@@ -963,7 +963,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC02E8E42A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQRTests" */ = {
+		FC02E8E42A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInARTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC02E8E52A48989200EC1809 /* Debug */,
@@ -973,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC02E8E72A48989200EC1809 /* Build configuration list for PBXNativeTarget "RealityFromQRUITests" */ = {
+		FC02E8E72A48989200EC1809 /* Build configuration list for PBXNativeTarget "ViewInARUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC02E8E82A48989200EC1809 /* Debug */,

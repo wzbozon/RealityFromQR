@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RealityFromQR
+@testable import ViewInAR
 
 final class ProductListViewTests: XCTestCase {
 
