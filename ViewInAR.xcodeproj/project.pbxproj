@@ -177,9 +177,9 @@
 		FC02E8AF2A48989100EC1809 = {
 			isa = PBXGroup;
 			children = (
-				FC02E8BA2A48989100EC1809 /* RealityFromQR */,
-				FC02E8D02A48989200EC1809 /* RealityFromQRTests */,
-				FC02E8DA2A48989200EC1809 /* RealityFromQRUITests */,
+				FC02E8BA2A48989100EC1809 /* ViewInAR */,
+				FC02E8D02A48989200EC1809 /* ViewInARTests */,
+				FC02E8DA2A48989200EC1809 /* ViewInARUITests */,
 				FC02E8B92A48989100EC1809 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC02E8BA2A48989100EC1809 /* RealityFromQR */ = {
+		FC02E8BA2A48989100EC1809 /* ViewInAR */ = {
 			isa = PBXGroup;
 			children = (
 				3C91FCAC2A7E6CC000A75858 /* Storage */,
@@ -208,10 +208,10 @@
 				FC02E8C42A48989200EC1809 /* Assets.xcassets */,
 				FC02E8C62A48989200EC1809 /* LaunchScreen.storyboard */,
 			);
-			path = RealityFromQR;
+			path = ViewInAR;
 			sourceTree = "<group>";
 		};
-		FC02E8D02A48989200EC1809 /* RealityFromQRTests */ = {
+		FC02E8D02A48989200EC1809 /* ViewInARTests */ = {
 			isa = PBXGroup;
 			children = (
 				3CA067242A88AD1C00FA9CE5 /* RealityFromQR.xctestplan */,
@@ -224,16 +224,16 @@
 				3C9E75A32A8AADF100CB052B /* ARViewControllerTests.swift */,
 				3C8D2D022A97349D0061B8AF /* CloseButtonTests.swift */,
 			);
-			path = RealityFromQRTests;
+			path = ViewInARTests;
 			sourceTree = "<group>";
 		};
-		FC02E8DA2A48989200EC1809 /* RealityFromQRUITests */ = {
+		FC02E8DA2A48989200EC1809 /* ViewInARUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FC02E8DB2A48989200EC1809 /* RealityFromQRUITests.swift */,
 				FC02E8DD2A48989200EC1809 /* RealityFromQRUITestsLaunchTests.swift */,
 			);
-			path = RealityFromQRUITests;
+			path = ViewInARUITests;
 			sourceTree = "<group>";
 		};
 		FC1EE9EB2A4C1A87004C8976 /* Resources */ = {
@@ -628,7 +628,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFV3M47D7P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RealityFromQR/Info.plist;
+				INFOPLIST_FILE = ViewInAR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -811,7 +811,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFV3M47D7P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RealityFromQR/Info.plist;
+				INFOPLIST_FILE = ViewInAR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -842,7 +842,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XFV3M47D7P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RealityFromQR/Info.plist;
+				INFOPLIST_FILE = ViewInAR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

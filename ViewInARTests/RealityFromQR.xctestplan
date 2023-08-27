@@ -14,9 +14,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:RealityFromQR.xcodeproj",
+        "containerPath" : "container:ViewInAR.xcodeproj",
         "identifier" : "FC02E8CC2A48989200EC1809",
-        "name" : "RealityFromQRTests"
+        "name" : "ViewInARTests"
       }
     }
   ],
