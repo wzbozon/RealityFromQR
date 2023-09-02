@@ -20,11 +20,16 @@ struct ProductRowView: View {
                 ProgressView()
             }
             .frame(width: 50, height: 50)
+            .tag(Constants.imageTag)
 
             Text(product.name)
 
             Spacer()
         }
+    }
+
+    enum Constants {
+        static let imageTag = 1
     }
 }
 
