@@ -9,13 +9,9 @@ QR code can be removed after the placement of objects or can be sticky to the ob
 
 # Videos
 
-<video width="320" controls>
-  <source src="https://github.com/wzbozon/ViewInAR/blob/master/Videos/1.mp4" type="video/mp4">
-</video>
+[![Demo 1](https://github.com/wzbozon/ViewInAR/blob/master/Screenshots/video1.jpg?raw=true)](https://youtube.com/shorts/bZ8h5qPIa7s?feature=share)
 
-<video width="320" controls>
-  <source src="https://github.com/wzbozon/ViewInAR/blob/master/Videos/2.mp4" type="video/mp4">
-</video>
+[![Demo 2](https://github.com/wzbozon/ViewInAR/blob/master/Screenshots/video2.jpg?raw=true)](https://youtu.be/xp0ouvnIxxk)
 
 # Features
 
